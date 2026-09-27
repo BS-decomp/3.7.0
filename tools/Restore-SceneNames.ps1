@@ -4,8 +4,11 @@ $root = (Resolve-Path -LiteralPath $ProjectPath).Path
 if (Test-Path -LiteralPath (Join-Path $root 'Temp/UnityLockfile')) {
     throw 'Close Unity before running this tool.'
 }
-$map = @(Get-Content -LiteralPath (Join-Path $PSScriptRoot 'scene-names.json') -Raw | ConvertFrom-Json)
-if ($map.Count -ne 56) { throw 'Expected 56 scene mappings.' }
+# Windows PowerShell 5.1 emits the JSON array as one pipeline object.
+# Assign it directly first; wrapping that pipeline in @() creates a nested array.
+$parsedMap = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'scene-names.json') -Raw | ConvertFrom-Json
+$map = @($parsedMap)
+if ($map.Count -ne 56) { throw "Expected 56 scene mappings; got $($map.Count). No changes made." }
 $settings = Join-Path $root 'ProjectSettings/EditorBuildSettings.asset'
 $loader = Join-Path $root 'Assets/Scripts/Assembly-CSharp/LevelManager.cs'
 $buildText = [IO.File]::ReadAllText($settings)

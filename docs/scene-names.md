@@ -40,3 +40,12 @@ room names, game modes and Android services are not removed or bypassed. The
 old UIFontControl data reads still run, even though LevelManager no longer needs
 their key for scene loading. Android-specific initialization and shader fixes
 remain separate. This does not assert a working full client yet.
+
+## Windows PowerShell compatibility correction
+
+The initial Windows run stopped at the mapping-count check before any project
+writes. Windows PowerShell 5.1 emits a JSON array as a single pipeline object;
+wrapping that pipeline directly in @() produced a nested array with Count = 1.
+The importer now assigns ConvertFrom-Json output first, then normalizes the
+assigned value with @($parsedMap). The 56-entry validation remains enabled.
+This correction has not been executed under Windows PowerShell in the sandbox.
