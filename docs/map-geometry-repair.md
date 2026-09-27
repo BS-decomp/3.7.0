@@ -34,9 +34,11 @@ The tool asks to save modified scenes, then processes all 56 manifests:
 - any partially repaired scene is rejected instead of being split a second time.
 
 For each modified scene, the tool maps original local file IDs for the exact
-MeshFilter/MeshRenderer/Transform triples. It checks mesh GUID, vertex layout,
+MeshFilter/MeshRenderer/Transform triples. It checks vertex layout, exact
 position hashes, subset triangle hashes, material counts and transforms before
-writing. It preserves object names, enabled state, hierarchy, transforms,
+writing. It also compares the imported mesh GUID with the source manifest; if
+Unity 5.6 remaps that GUID, the mismatch is logged and the exact content hashes
+must still match before the mesh is accepted. It preserves object names, enabled state, hierarchy, transforms,
 colliders, scripts, static flags, cameras, UI/events and material order.
 
 Converted mesh assets are written under a unique

@@ -392,8 +392,18 @@ public static class BlockStrikeGeometryRecovery
                 MeshRenderer renderer; MeshFilter filter; Transform tr;
                 ValidateIdentity(objects, record, out renderer, out filter, out tr);
                 Require(filter.sharedMesh != null, "Missing source mesh: " + tr.name);
-                Require(AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(filter.sharedMesh)) == record.meshGuid,
-                    "Source mesh GUID mismatch: " + tr.name);
+                string meshPath = AssetDatabase.GetAssetPath(filter.sharedMesh);
+                string meshGuid = AssetDatabase.AssetPathToGUID(meshPath);
+                if (meshGuid != record.meshGuid)
+                {
+                    // Unity 5.6 may hand us an imported/static-batch mesh whose
+                    // database GUID changed even though its bytes are intact.
+                    // Prefer the strict source manifest, but do not guess here:
+                    // Split below requires exact position and triangle hashes.
+                    Debug.LogWarning("[BS608 Recovery] " + manifest.sceneName + "/" + tr.name +
+                        ": source mesh GUID changed from " + record.meshGuid + " to " + meshGuid +
+                        "; checking exact mesh content instead.");
+                }
                 Require(renderer.sharedMaterials.Length == record.subsets.Length,
                     "Material count differs: " + tr.name);
                 BatchFields(renderer, false);
