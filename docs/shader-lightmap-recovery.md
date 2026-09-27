@@ -1,88 +1,90 @@
-# Shader and lightmap recovery notes for 608
+# Shader and lightmap recovery (Block Strike 608, Unity 4.7.2 → 5.6)
 
-## What is actually missing
+## What turned out to be true
 
-The original APK contains all **43 shader names** used by the current export.
-The binary package filenames that look like random hashes are Unity asset GUIDs,
-not the scene-name encryption used for level files. Their embedded shader names
-are readable, so shader-name decryption is not the blocker.
+Every shader the game uses is present inside the APK in full. Unity 4.x
+serializes each Shader asset with a complete **decompiled text block**: the
+original shader name, the Properties block, per-pass render state (tags, LOD,
+Blend, Cull, ZWrite, ColorMask, Offset, Fog, fixed-function SetTexture stages)
+and the compiled GLES2/GLES3 programs of every CG pass.
 
-AssetRipper exported only **8 shaders as real fixed-function/source text**.
-The remaining **35 shaders contain `DummyShaderTextExporter` placeholders**:
+AssetRipper ignores that block and writes `DummyShaderTextExporter`
+placeholders for anything that is not pure fixed-function. That is why the
+export contained 43 `.shader` files where 35 were dummies: all 24 NGUI UI
+shaders, the MADFINGER god rays, the ProBuilder helpers and 5 Unity built-ins
+had CG programs and were lost by the exporter, while the 8 fixed-function
+shaders survived.
 
-- 24 NGUI UI shaders:
-  - 5 Premultiplied Colored variants;
-  - 5 Text variants;
-  - 6 Transparent Colored variants;
-  - 4 Transparent Masked variants;
-  - 4 Transparent Packed variants.
-- 4 ProBuilder shaders:
-  - Diffuse Vertex Color;
-  - Unlit Solid Color;
-  - UnlitVertexColor;
-  - HideVertices.
-- 7 gameplay/particle shaders:
-  - Mobile/VertexLit;
-  - Mobile/VertexLit (Only Directional Lights);
-  - Particles/Additive;
-  - Particles/Alpha Blended;
-  - Unlit/Transparent;
-  - MADFINGER/Transparent/GodRays;
-  - MADFINGER/Transparent/Blinking GodRays.
+`tools/extract_apk_shader_texts.py` recovers the embedded texts straight from
+the APK into `tools/shader-extract/` (47 shaders: the 43 exported ones plus
+`VertexLit`, `Diffuse`, `UI/Default`, `UI/Default Font` from
+`unity_builtin_extra`, which are the stock editor built-ins and need no files).
 
-All 43 names were found in the original APK data. Placeholder status therefore
-means AssetRipper could not decompile those shader objects into editor-ready
-ShaderLab, not that the APK lost them.
+The 8 fixed-function "survivors" match the extraction property-for-property,
+which validates the extractor end to end.
 
-## What can be recovered faithfully
+## Restoration method per shader
 
-The binary shader objects preserve packaged shader metadata and GLES/GLES3
-program text. That allows reconstruction of Unity 5.6-compatible ShaderLab with:
+| Shader | Source of truth | How restored |
+| --- | --- | --- |
+| 24 × NGUI `Unlit - *` | classic NGUI 3.x sources (`tools/shader-canonical/ngui/`) | era-normalized by `tools/build_shader_recovery.py` (newer NGUI revisions' `DisableBatching`, instancing/stereo macros, `UnityObjectToClipPos` and `_MainTex_ST` handling removed; `ColorMask RGB` restored exactly where the APK pass had it) |
+| 4 × ProBuilder 2.x | Unity-Technologies probuilder-vr era sources (`tools/shader-canonical/probuilder/`) | same era normalization, dead uniforms trimmed |
+| 2 × MADFINGER god rays | free MADFINGER shader pack mirrors (`tools/shader-canonical/madfinger/`) | blinking formula verified constant-for-constant against APK GLSL (56.7272 / 0.6366 / 2π) |
+| 5 × Unity built-ins | hand-restored era-authentic Unity 4.x built-in sources (`tools/shader-canonical/builtin-era/`) | every pass/variant cross-checked against the embedded GLSL (e.g. particles have only SOFTPARTICLES_OFF/ON, no fog code, `2.0 * color * tint * tex`, no HDR clamp) |
 
-- original shader names;
-- original render queue/render type/tags;
-- ZWrite, Cull, Fog, Offset and ColorMask state;
-- Blend equations;
-- material properties;
-- NGUI clipping masks and texture-clip logic;
-- fixed-function texture/lightmap behavior where present;
-- particle color and alpha behavior.
+`tools/build_shader_recovery.py` mechanically verifies all 35 outputs against
+the extraction: identical shader name, identical Properties (name, label,
+type, default), matching pass render state, matching fixed-function structure
+and matching user-uniform sets. It exits non-zero on any mismatch.
 
-The APK does **not** contain the developer's original hand-written `.shader`
-source files. A byte-identical or historically identical source restoration is
-therefore impossible from this APK alone. The achievable target is functional
-and visual equivalence, verified against the original rendering behavior.
-Each replacement must state when it is a reconstructed equivalent rather than
-proven original source.
+### Fidelity notes
 
-## Practical restoration slices
+- Names, Properties and pass state are **byte-faithful** to what the APK was
+  built with.
+- CG bodies are the original third-party sources of the same era, selected so
+  they compile to the same programs Unity 4.7 baked into the APK. Where only
+  the compiled GLSL exists (e.g. custom formatting/comments), the original
+  hand-written comments and whitespace are unrecoverable - behaviour, not
+  bytes, is restored there.
+- SubShader fallbacks that Unity 4.7 stripped from the Android build (NGUI
+  LOD 100 fixed-function subshader, particle dual/single texture card
+  fallbacks) are included again from the upstream sources; they never execute
+  on GLES2+ but restore the original project content.
+- The four shaders found only inside `unity_builtin_extra` are the stock
+  editor built-ins Unity ships with the editor; no project files are needed
+  or wanted for them.
 
-1. Restore NGUI's 24 Resource shaders first: they use known NGUI clip/mask
-   conventions and have complete packaged GLES logic. This should repair much
-   of Menu/UI without touching gameplay code.
-2. Restore the seven gameplay/particle placeholders, especially the two
-   Mobile/VertexLit shaders used by map materials.
-3. Restore ProBuilder helper shaders only where actually used; HideVertices is
-   editor/helper-like and should not be treated as gameplay content.
-4. Keep the existing real `Mobile/Unlit (Supports Lightmap)` implementation;
-   do not replace it blindly. Its legacy `Vertex`, `VertexLM` and
-   `VertexLMRGBM` passes are central to the original map appearance.
+## Applying to the project
 
-## Lightmaps and ugly directory names
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Install-ShaderRecovery.ps1 -ProjectPath "$env:USERPROFILE\Desktop\BlockStrike-Unity56\UnityProject"
+```
 
-All **54 scene lightmap textures** are present in the export as
-`LightmapFar-0.png`. Only their parent directories retain the encrypted scene
-file stems. The PNG GUIDs and `.meta` files survive, so normalizing directory
-names is a path-migration task, not a lightmap-data recovery task.
+The installer copies the 35 rebuilt shaders over the placeholder files
+(`Assets/Shader/` and `Assets/Resources/shaders/`), leaves every `.meta`
+untouched (material GUID links are preserved), skips files already recovered
+(re-runnable), and stores backups under `RecoveryBackups/`.
 
-A safe later migration should:
+## Lightmaps
 
-- move each scene's lightmap folder and `.meta` files under a readable
-  map-specific directory;
-- preserve GUIDs byte-for-byte so scene references remain valid;
-- back up before moves and avoid touching scene contents during the same run;
-- keep old lightmap indices/UV2 data already handled by geometry repair.
+All 54 `LightmapFar-0.png` textures exist in the export; only their parent
+folders still carry the DES-encrypted scene stems
+(`Assets/Levels/.../<Map>/SXZtRDEyM0Ex...`). Scene references point at the
+texture GUIDs, so normalizing the folders while keeping every `.meta`
+preserves all links.
 
-Occlusion culling warnings are separate: old Unity 4 occlusion data is not a
-lightmap and may need rebuilding or explicit retirement after rendering is
-correct. Do not claim that restoring paths fixes occlusion.
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Normalize-LightmapPaths.ps1 -ProjectPath "$env:USERPROFILE\Desktop\BlockStrike-Unity56\UnityProject"
+```
+
+The normalizer renames each encrypted folder to the recovered scene name
+(`Better/LightmapFar-0.png` next to `Better.unity` etc.), moves the folder
+`.meta` too, verifies every texture still has its `.meta`, and reports per
+scene. Unity must be closed; it reimports on next open.
+
+## Known limits
+
+- Occlusion culling data is Unity 4-era and will not work in 5.6; rebake
+  per scene if needed (independent of lightmaps).
+- The visual check against the running APK is still pending the user's PC;
+  all mechanical equivalence checks pass.
