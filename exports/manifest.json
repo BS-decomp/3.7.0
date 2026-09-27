@@ -1,0 +1,28 @@
+{
+  "files": 7775,
+  "extensions": {
+    ".anim": 14,
+    ".meta": 3798,
+    ".controller": 2,
+    ".wav": 20,
+    ".mp3": 8,
+    ".asset": 2048,
+    ".blendtree": 4,
+    ".ttf": 3,
+    ".prefab": 86,
+    ".png": 668,
+    ".unity": 56,
+    ".mat": 101,
+    ".physicMaterial": 1,
+    ".cs": 881,
+    ".dll": 10,
+    ".txt": 20,
+    ".bytes": 1,
+    ".json": 2,
+    ".shader": 43,
+    ".state": 9
+  },
+  "archive_bytes": 38631958,
+  "sha256": "f5ad8cd6ae16798e3ec343c6a6b8069444cdf602f97c13b8fe4f1f3982ba0e1f",
+  "dummy_shader_files": 35
+}

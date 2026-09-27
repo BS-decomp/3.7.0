@@ -1,0 +1,5 @@
+.cache/
+recovered/
+__pycache__/
+# Local Unity working copies
+UnityProject/
