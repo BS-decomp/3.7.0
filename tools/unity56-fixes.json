@@ -28,5 +28,10 @@
     "file": "GameManager.cs",
     "old": "\tpublic unsafe static void StartAutoBalance()\n\t{\n\t\tvp_Timer.In(30f, new vp_Timer.Callback(null, (IntPtr)(void*)(ulong)(UIntPtr/*delegate*<bool, void>*/)(&BalanceTeam)), -1, 30f);\n\t}",
     "new": "\tpublic static void StartAutoBalance()\n\t{\n\t\tvp_Timer.In(30f, delegate { BalanceTeam(false); }, -1, 30f);\n\t}"
+  },
+  {
+    "file": "UIDrawCall.cs",
+    "old": "\t\tUnityEngine.Object.DontDestroyOnLoad(gameObject);",
+    "new": "\t\tif (Application.isPlaying)\n\t\t{\n\t\t\tUnityEngine.Object.DontDestroyOnLoad(gameObject);\n\t\t}"
   }
 ]
