@@ -1,0 +1,22 @@
+[
+  {
+    "file": "InAppManager.cs",
+    "old": "JsonObject jsonObject = new JsonObject();",
+    "new": "FreeJSON.JsonObject jsonObject = new FreeJSON.JsonObject();"
+  },
+  {
+    "file": "vp_EventDump.cs",
+    "old": "\t\t\t\tswitch (text2)\n\t\t\t\t{\n\t\t\t\tdefault:\n\t\t\t\t{\n\t\t\t\t\tint num;\n\t\t\t\t\ttext = ((num != 1) ? (text + \"Unsupported listener: \") : (text + \"Set\"));\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t\tcase \"Get\":\n\t\t\t\t\ttext += \"Get\";\n\t\t\t\t\tbreak;\n\t\t\t\t}",
+    "new": "\t\t\t\tswitch (text2)\n\t\t\t\t{\n\t\t\t\tcase \"Get\":\n\t\t\t\t\ttext += \"Get\";\n\t\t\t\t\tbreak;\n\t\t\t\tcase \"Set\":\n\t\t\t\t\ttext += \"Set\";\n\t\t\t\t\tbreak;\n\t\t\t\tdefault:\n\t\t\t\t\ttext += \"Unsupported listener: \";\n\t\t\t\t\tbreak;\n\t\t\t\t}"
+  },
+  {
+    "file": "vp_Interactable.cs",
+    "old": "\t\tusing (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())\n\t\t{\n\t\t\tstring current;\n\t\t\tdo\n\t\t\t{\n\t\t\t\tif (enumerator.MoveNext())\n\t\t\t\t{\n\t\t\t\t\tcurrent = enumerator.Current;\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t\t}\n\t\t\twhile (!(col.gameObject.tag == current));\n\t\t}",
+    "new": "\t\tusing (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())\n\t\t{\n\t\t\twhile (true)\n\t\t\t{\n\t\t\t\tif (!enumerator.MoveNext())\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (col.gameObject.tag == enumerator.Current)\n\t\t\t\t{\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}"
+  },
+  {
+    "file": "vp_Switch.cs",
+    "old": "\t\tusing (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())\n\t\t{\n\t\t\tstring current;\n\t\t\tdo\n\t\t\t{\n\t\t\t\tif (enumerator.MoveNext())\n\t\t\t\t{\n\t\t\t\t\tcurrent = enumerator.Current;\n\t\t\t\t\tcontinue;\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t\t}\n\t\t\twhile (!(col.gameObject.tag == current));\n\t\t}",
+    "new": "\t\tusing (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())\n\t\t{\n\t\t\twhile (true)\n\t\t\t{\n\t\t\t\tif (!enumerator.MoveNext())\n\t\t\t\t{\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\tif (col.gameObject.tag == enumerator.Current)\n\t\t\t\t{\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}"
+  }
+]
