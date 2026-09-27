@@ -49,3 +49,18 @@ wrapping that pipeline directly in @() produced a nested array with Count = 1.
 The importer now assigns ConvertFrom-Json output first, then normalizes the
 assigned value with @($parsedMap). The 56-entry validation remains enabled.
 This correction has not been executed under Windows PowerShell in the sandbox.
+
+## Binary Build Settings recovery
+
+The user supplied a nonempty, 4104-byte Unity 5.6 binary EditorBuildSettings,
+not YAML. This explains why string path replacement did not find Better.
+Use `-RestoreBuildSettings` with Restore-SceneNames.ps1 to explicitly replace
+this list from `tools/EditorBuildSettings.original.asset` (byte-identical to the
+original export's settings). This restores original order/enabled flags for all
+56 scenes, replaces encrypted paths and adds GUIDs read from current scene metas.
+Custom build order/disabled flags are not retained in this recovery mode. The
+existing binary file is backed up byte-for-byte before writes and restored on
+caught transaction errors. All scene/meta/loader validation still happens first.
+Without this switch non-YAML settings are rejected with an actionable message.
+The project-wide serialization mode is not changed. This addresses the settings
+format only; Android initialization and shader recovery remain unresolved.

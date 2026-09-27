@@ -1,4 +1,7 @@
-param([Parameter(Mandatory=$true)][string]$ProjectPath)
+param(
+    [Parameter(Mandatory=$true)][string]$ProjectPath,
+    [switch]$RestoreBuildSettings
+)
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path -LiteralPath $ProjectPath).Path
 if (Test-Path -LiteralPath (Join-Path $root 'Temp/UnityLockfile')) {
@@ -12,6 +15,18 @@ if ($map.Count -ne 56) { throw "Expected 56 scene mappings; got $($map.Count). N
 $settings = Join-Path $root 'ProjectSettings/EditorBuildSettings.asset'
 $loader = Join-Path $root 'Assets/Scripts/Assembly-CSharp/LevelManager.cs'
 $buildText = [IO.File]::ReadAllText($settings)
+if ($RestoreBuildSettings) {
+    # Explicit recovery, NOT an attempt to edit binary Unity serialization as text.
+    # Existing settings are copied byte-for-byte to the backup before any writes.
+    $buildText = [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'EditorBuildSettings.original.asset'))
+    if ([regex]::Matches($buildText, '(?m)^    path: ').Count -ne 56) {
+        throw 'Invalid original Build Settings template. No changes made.'
+    }
+    Write-Host 'Restoring original build order and enabling all 56 exported scenes.'
+    Write-Host 'Custom build order/enabled flags will be replaced; original file will be backed up.'
+} elseif (!$buildText.TrimStart().StartsWith('%YAML')) {
+    throw 'Build Settings is not text YAML. Run again with -RestoreBuildSettings to restore the original 56-scene list. No changes made.'
+}
 $code = [IO.File]::ReadAllText($loader).Replace("`r`n", "`n")
 $renames = @()
 foreach ($entry in $map) {
@@ -28,7 +43,19 @@ foreach ($entry in $map) {
     } elseif (!(Test-Path -LiteralPath ($new + '.meta')) -or (Test-Path -LiteralPath ($old + '.meta'))) {
         throw "Unexpected meta state: $($entry.name). No changes made."
     }
-    # Keep enabled flags, build order and any Unity 5 GUID fields intact.
+    if ($RestoreBuildSettings) {
+        # Use current scene GUIDs, not assumptions about how Unity imported the ZIP.
+        $sceneMeta = $new + '.meta'
+        if ($hasOld) { $sceneMeta = $old + '.meta' }
+        $guidMatch = [regex]::Match([IO.File]::ReadAllText($sceneMeta), '(?m)^guid: ([0-9a-fA-F]{32})\s*$')
+        if (!$guidMatch.Success) { throw "Invalid scene GUID: $($entry.name). No changes made." }
+        $line = '    path: ' + $entry.old
+        if ([regex]::Matches($buildText, [regex]::Escape($line)).Count -ne 1) {
+            throw "Template missing or duplicating $($entry.name). No changes made."
+        }
+        $buildText = $buildText.Replace($line, ($line + "`n    guid: " + $guidMatch.Groups[1].Value))
+    }
+    # Text mode preserves existing order/flags/GUIDs; recovery mode uses the template.
     $buildText = $buildText.Replace($entry.old, $entry.new)
     if (!$buildText.Contains($entry.new)) { throw "Build Settings missing $($entry.name). No changes made." }
 }

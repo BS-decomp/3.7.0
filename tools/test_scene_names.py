@@ -32,6 +32,25 @@ class SceneNamesTests(unittest.TestCase):
                 if p.endswith(('.cs', '.unity', '.prefab', '.asset')) and not p.endswith('EditorBuildSettings.asset'):
                     self.assertNotIn(b'SXZtRDE', z.read(p), p)
 
+    def test_build_recovery_template(self):
+        template = (ROOT / 'tools/EditorBuildSettings.original.asset').read_bytes()
+        entries = json.loads((ROOT / 'tools/scene-names.json').read_text())
+        with zipfile.ZipFile(ROOT / 'exports/BlockStrike-608-Unity-4.7.2f1.zip') as z:
+            self.assertEqual(template, z.read('UnityProject/ProjectSettings/EditorBuildSettings.asset'))
+            text = template.decode()
+            for entry in entries:
+                meta = z.read('UnityProject/' + entry['old'] + '.meta').decode()
+                guid = re.search(r'^guid: ([0-9a-fA-F]{32})\s*$', meta, re.M).group(1)
+                line = '    path: ' + entry['old']
+                self.assertEqual(text.count(line), 1)
+                text = text.replace(line, line + '\n    guid: ' + guid)
+                text = text.replace(entry['old'], entry['new'])
+            self.assertEqual(len(re.findall(r'^    guid: [0-9a-f]{32}$', text, re.M)), 56)
+            self.assertEqual(len(re.findall(r'^  - enabled: 1$', text, re.M)), 56)
+            self.assertNotIn('SXZtRDE', text)
+            self.assertEqual(re.findall(r'^    path: (.+)$', text, re.M)[:3],
+                             ['Assets/Levels/AwakeScene.unity', 'Assets/Levels/Logo.unity', 'Assets/Levels/Menu.unity'])
+
     def test_loader_patches(self):
         with zipfile.ZipFile(ROOT / 'exports/BlockStrike-608-Unity-4.7.2f1.zip') as z:
             code = z.read('UnityProject/Assets/Scripts/Assembly-CSharp/LevelManager.cs').decode()
