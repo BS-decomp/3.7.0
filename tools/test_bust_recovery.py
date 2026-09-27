@@ -5,7 +5,7 @@ import struct
 import unittest
 import zipfile
 from audit_static_batches import ROOT, audit, blocks, field, ref, mesh_data
-from build_bust_manifest import generate, vector
+from build_geometry_manifests import generate, vector
 
 
 def add(a, b): return [x+y for x, y in zip(a, b)]
@@ -20,7 +20,7 @@ def rotate(v, q):
 
 class BustRecoveryTests(unittest.TestCase):
     def test_manifest_reproducible(self):
-        saved = json.loads((ROOT/'tools/unity-editor/BustGeometry.json').read_text())
+        saved = json.loads((ROOT/'tools/unity-editor/MapGeometry/28_Bust.json').read_text())
         self.assertEqual(saved, generate())  # Includes original atlas UV bounds checks.
         self.assertEqual(len({r['rendererId'] for r in saved['renderers']}), 153)
         self.assertTrue(all(r['batchRootId'] == 0 for r in saved['renderers']))
