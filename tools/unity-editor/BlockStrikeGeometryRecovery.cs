@@ -215,10 +215,45 @@ public static class BlockStrikeGeometryRecovery
         return filter.sharedMesh != null && filter.sharedMesh.name.StartsWith(Prefix);
     }
 
+    static bool PositionDataMatches(Mesh source, Record record)
+    {
+        if (source == null) return false;
+        return source.vertexCount == record.vertexCount &&
+               source.subMeshCount == record.subMeshCount &&
+               HashPositions(source.vertices) == record.positionHash;
+    }
+
+    static Mesh ResolveSourceMesh(MeshFilter filter, Record record, string sceneName)
+    {
+        // Prefer the immutable mesh asset named by the original export. Unity's
+        // editor can expose a regenerated static-batch mesh through sharedMesh,
+        // especially after a scene was repaired and later reverted.
+        string manifestPath = AssetDatabase.GUIDToAssetPath(record.meshGuid);
+        Mesh manifestMesh = null;
+        if (manifestPath.Length > 0)
+            manifestMesh = AssetDatabase.LoadAssetAtPath<Mesh>(manifestPath);
+        if (PositionDataMatches(manifestMesh, record)) return manifestMesh;
+        if (manifestMesh != null)
+            Debug.LogWarning("[BS608 Recovery] " + sceneName + "/" + filter.name +
+                ": manifest mesh asset no longer has the original content; checking the scene mesh instead.");
+
+        Mesh sceneMesh = filter.sharedMesh;
+        Require(sceneMesh != null, "Missing source mesh: " + filter.name);
+        string scenePath = AssetDatabase.GetAssetPath(sceneMesh);
+        string sceneGuid = AssetDatabase.AssetPathToGUID(scenePath);
+        if (sceneGuid != record.meshGuid)
+            Debug.LogWarning("[BS608 Recovery] " + sceneName + "/" + filter.name +
+                ": scene mesh GUID changed from " + record.meshGuid + " to " + sceneGuid +
+                "; exact triangle/index checks will decide.");
+        return sceneMesh;
+    }
+
     static Mesh Split(Mesh source, Transform tr, Record record)
     {
         Require(source.vertexCount == record.vertexCount && source.subMeshCount == record.subMeshCount,
-            "Imported mesh layout differs from export: " + tr.name);
+            "Imported mesh layout differs from export: " + tr.name +
+            " (expected " + record.vertexCount + " vertices/" + record.subMeshCount +
+            " submeshes, got " + source.vertexCount + "/" + source.subMeshCount + ")");
         Require(HashPositions(source.vertices) == record.positionHash,
             "Imported vertex positions differ from the original export: " + tr.name);
         Require(source.blendShapeCount == 0 && source.bindposes.Length == 0 && source.boneWeights.Length == 0,
@@ -391,19 +426,7 @@ public static class BlockStrikeGeometryRecovery
             {
                 MeshRenderer renderer; MeshFilter filter; Transform tr;
                 ValidateIdentity(objects, record, out renderer, out filter, out tr);
-                Require(filter.sharedMesh != null, "Missing source mesh: " + tr.name);
-                string meshPath = AssetDatabase.GetAssetPath(filter.sharedMesh);
-                string meshGuid = AssetDatabase.AssetPathToGUID(meshPath);
-                if (meshGuid != record.meshGuid)
-                {
-                    // Unity 5.6 may hand us an imported/static-batch mesh whose
-                    // database GUID changed even though its bytes are intact.
-                    // Prefer the strict source manifest, but do not guess here:
-                    // Split below requires exact position and triangle hashes.
-                    Debug.LogWarning("[BS608 Recovery] " + manifest.sceneName + "/" + tr.name +
-                        ": source mesh GUID changed from " + record.meshGuid + " to " + meshGuid +
-                        "; checking exact mesh content instead.");
-                }
+                Mesh sourceMesh = ResolveSourceMesh(filter, record, manifest.sceneName);
                 Require(renderer.sharedMaterials.Length == record.subsets.Length,
                     "Material count differs: " + tr.name);
                 BatchFields(renderer, false);
@@ -412,7 +435,7 @@ public static class BlockStrikeGeometryRecovery
                     record = record,
                     filter = filter,
                     renderer = renderer,
-                    mesh = Split(filter.sharedMesh, tr, record)
+                    mesh = Split(sourceMesh, tr, record)
                 });
             }
 
