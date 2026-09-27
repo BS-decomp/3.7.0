@@ -33,3 +33,20 @@ material order and handle baked UV2/lightmap scale-offset without double applyin
 it. Do not reset all transforms, replace all materials or merely clear batching
 flags. Colliders, scene hierarchy, game scripts and asset references must remain
 intact. No geometry repair shipped with this audit.
+
+## Executed extraction checks
+
+`python tools/audit_static_batches.py` reads the original ZIP and writes only
+`.cache/bust-static-batch-audit.json`. No Unity project is modified.
+
+Bust: all 153 batched renderers split successfully, with one material per
+selected submesh. All 248 shared-mesh submeshes are selected exactly once:
+no missing or multiply selected pieces. Index ranges and triangle topology pass.
+The split/reindexed triangle stream reproduces byte-identical vertex records,
+including UVs and normals; no vertex attribute conversion is performed yet.
+
+Also ran `audit(name)` for all 56 mapped scenes: all pass these extraction
+checks, covering 3,891 batched renderers. This is NOT a successful render test.
+Local-space transforms, normals/tangents and baked lightmap UV handling remain
+required before generating replacement assets. The audit handles only the
+explicitly validated single-stream Unity 4 layout and fails closed otherwise.
