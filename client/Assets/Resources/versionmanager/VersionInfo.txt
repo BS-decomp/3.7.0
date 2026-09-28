@@ -1,0 +1,6 @@
+Block Strike
+com.rexetstudio.blockstrike
+3.7.0
+610
+True
+False

@@ -1,0 +1,90 @@
+using System.IO;
+using Crypto;
+using Prime31;
+using UnityEngine;
+
+public class Logo : MonoBehaviour
+{
+	public GameObject RexetPanel;
+
+	public GameObject RedictPanel;
+
+	public bool isLoadMenu = true;
+
+	private void Start()
+	{
+		if (CheckGame())
+		{
+			AndroidNativeFunctions.ShowAlert("Files corrupted, please reinstall the game.", "Block Strike", "OK", string.Empty, string.Empty, OnClick);
+			return;
+		}
+		if (AndroidNativeFunctions.GetAppInfo().packageName != VersionManager.bundleIdentifier || AndroidNativeFunctions.GetSignature() != "669FC0E7" || AndroidNativeFunctions.isInstalledApp(AesEncryptor.DecryptString("u27FJJeKE80w5vLMYG8CU1ny+gumK4UejwQ5cluiaKhLYmE7FaTxCklDgeX2p+GH")) || CryptoPrefs.HasKey("Test"))
+		{
+			CryptoPrefs.SetBool("Test", true);
+			return;
+		}
+		PlayGameServices.authenticate();
+		AndroidNativeFunctions.ImmersiveMode();
+		isLoadMenu = PlayerPrefs.HasKey("Tutorial");
+		Screen.sleepTimeout = -1;
+		Utils.SetActiveConsole(Settings.Console);
+		OnAnimation();
+		AccountManager.Init();
+	}
+
+	private bool CheckGame()
+	{
+		if (Directory.Exists(Path.GetDirectoryName(Application.dataPath) + "/arm"))
+		{
+			return true;
+		}
+		if (File.Exists(Path.GetDirectoryName(Application.dataPath) + "/" + Path.GetFileNameWithoutExtension(Application.dataPath) + ".odex"))
+		{
+			return true;
+		}
+		return false;
+	}
+
+	private void OnClick(DialogInterface dialog)
+	{
+		if (dialog == DialogInterface.Positive)
+		{
+			Application.Quit();
+		}
+	}
+
+	private void OnAnimation()
+	{
+		vp_Timer.In(0.5f, () =>
+		{
+			TweenAlpha.Begin(RexetPanel, 1f, 1f);
+			vp_Timer.In(1.8f, () =>
+			{
+				TweenAlpha.Begin(RexetPanel, 1f, 0f);
+				vp_Timer.In(1.2f, () =>
+				{
+					if (isLoadMenu)
+					{
+						LevelManager.LoadLevel("Menu");
+					}
+					else
+					{
+						LoadTutorial();
+					}
+				});
+			});
+		});
+	}
+
+	private void LoadTutorial()
+	{
+		PhotonNetwork.AddSendMonoMessageTargets(base.gameObject);
+		PhotonNetwork.offlineMode = true;
+		PhotonNetwork.CreateRoom("tutorial");
+	}
+
+	private void OnJoinedRoom()
+	{
+		LevelManager.LoadLevel("MainTutorial");
+	}
+}
