@@ -163,6 +163,7 @@ class LightmapBindingTests(unittest.TestCase):
         self.assertIn("RestoreReceipt(receipt)", text)
         self.assertIn("RecoveredGeometry/MapGeometry-", text)
         self.assertIn("ExpectedLightmappedRendererCount = 3196", text)
+        self.assertIn("string meshGuid = null;", text)
 
 
 if __name__ == "__main__":

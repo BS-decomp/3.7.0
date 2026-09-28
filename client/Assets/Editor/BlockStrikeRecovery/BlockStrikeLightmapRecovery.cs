@@ -268,7 +268,7 @@ public static class BlockStrikeLightmapRecovery
                 manifest.sceneName + "/" + transform.name + ": expected MeshFilter local ID " +
                 record.filterId + ", found " + filterId + ".");
 
-            string meshGuid;
+            string meshGuid = null;
             Require(filterId <= int.MaxValue && serializedMeshGuids.TryGetValue((int)filterId, out meshGuid),
                 manifest.sceneName + "/" + transform.name + ": serialized MeshFilter local ID " +
                 filterId + " has no persistent mesh GUID in the scene file.");
