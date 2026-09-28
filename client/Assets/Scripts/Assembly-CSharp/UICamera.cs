@@ -508,7 +508,7 @@ public class UICamera : MonoBehaviour
 		{
 			if (mCam == null)
 			{
-				mCam = base.camera;
+				mCam = base.GetComponent<Camera>();
 			}
 			return mCam;
 		}
@@ -893,7 +893,7 @@ public class UICamera : MonoBehaviour
 			{
 				return null;
 			}
-			Rigidbody rigidbody = trans.rigidbody;
+			Rigidbody rigidbody = trans.GetComponent<Rigidbody>();
 			if (rigidbody != null)
 			{
 				return rigidbody;
@@ -911,7 +911,7 @@ public class UICamera : MonoBehaviour
 			{
 				return null;
 			}
-			Rigidbody2D rigidbody2D = trans.rigidbody2D;
+			Rigidbody2D rigidbody2D = trans.GetComponent<Rigidbody2D>();
 			if (rigidbody2D != null)
 			{
 				return rigidbody2D;

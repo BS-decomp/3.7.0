@@ -132,7 +132,7 @@ public class PlayerSkinAtlas : MonoBehaviour
 		if (originalMesh == null)
 		{
 			originalMesh = base.gameObject.GetComponent<SkinnedMeshRenderer>().sharedMesh;
-			originalMaterial = mf.renderer.sharedMaterial;
+			originalMaterial = mf.GetComponent<Renderer>().sharedMaterial;
 			if (atlas == null && lastUsedAtlas != null)
 			{
 				atlas = lastUsedAtlas;
@@ -158,7 +158,7 @@ public class PlayerSkinAtlas : MonoBehaviour
 			UpdateUVs();
 			if (customMaterial != null)
 			{
-				mf.renderer.sharedMaterial = customMaterial;
+				mf.GetComponent<Renderer>().sharedMaterial = customMaterial;
 			}
 			mf.sharedMesh = mesh;
 		}
@@ -168,7 +168,7 @@ public class PlayerSkinAtlas : MonoBehaviour
 	{
 		if (mesh != null)
 		{
-			customMaterial = mf.renderer.sharedMaterial;
+			customMaterial = mf.GetComponent<Renderer>().sharedMaterial;
 			UnityEngine.Object.DestroyImmediate(mesh);
 			mesh = null;
 		}
@@ -178,7 +178,7 @@ public class PlayerSkinAtlas : MonoBehaviour
 		}
 		if (originalMaterial != null)
 		{
-			mf.renderer.sharedMaterial = originalMaterial;
+			mf.GetComponent<Renderer>().sharedMaterial = originalMaterial;
 		}
 	}
 

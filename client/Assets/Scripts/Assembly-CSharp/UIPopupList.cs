@@ -874,7 +874,7 @@ public class UIPopupList : UIWidgetContainer
 				else
 				{
 					BoxCollider2D component2 = uILabel2.GetComponent<BoxCollider2D>();
-					component2.center = vector4;
+					component2.offset = vector4;
 					component2.size = vector5;
 				}
 			}

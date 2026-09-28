@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Restored from the Block Strike 608 APK ground truth + era-authentic source.
 // See tools/shader-extract/ and docs/shader-lightmap-recovery.md.
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
@@ -60,7 +62,7 @@ Category {
 			v2f vert (appdata_t v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				#ifdef SOFTPARTICLES_ON
 				o.projPos = ComputeScreenPos (o.vertex);
 				COMPUTE_EYEDEPTH(o.projPos.z);

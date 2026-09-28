@@ -217,7 +217,7 @@ public class UIPanel : UIRect
 	{
 		get
 		{
-			return base.anchorCamera != null && mCam.isOrthoGraphic;
+			return base.anchorCamera != null && mCam.orthographic;
 		}
 	}
 
@@ -225,7 +225,7 @@ public class UIPanel : UIRect
 	{
 		get
 		{
-			if (base.anchorCamera != null && mCam.isOrthoGraphic)
+			if (base.anchorCamera != null && mCam.orthographic)
 			{
 				Vector2 windowSize = GetWindowSize();
 				float num = ((!(base.root != null)) ? 1f : base.root.pixelSizeAdjustment);
@@ -801,7 +801,7 @@ public class UIPanel : UIRect
 		}
 		base.OnInit();
 		FindParent();
-		if (base.rigidbody == null && mParentPanel == null)
+		if (base.GetComponent<Rigidbody>() == null && mParentPanel == null)
 		{
 			UICamera uICamera = ((!(base.anchorCamera != null)) ? null : mCam.GetComponent<UICamera>());
 			if (uICamera != null && (uICamera.eventType == UICamera.EventType.UI_3D || uICamera.eventType == UICamera.EventType.World_3D))

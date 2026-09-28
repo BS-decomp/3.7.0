@@ -273,7 +273,7 @@ public static class NGUITools
 			}
 			if (mListener != null && mListener.enabled && GetActive(mListener.gameObject))
 			{
-				AudioSource audioSource = mListener.audio;
+				AudioSource audioSource = mListener.GetComponent<AudioSource>();
 				if (audioSource == null)
 				{
 					audioSource = mListener.gameObject.AddComponent<AudioSource>();
@@ -466,13 +466,13 @@ public static class NGUITools
 			if (component != null)
 			{
 				Vector3[] localCorners = component.localCorners;
-				box.center = Vector3.Lerp(localCorners[0], localCorners[2], 0.5f);
+				box.offset = Vector3.Lerp(localCorners[0], localCorners[2], 0.5f);
 				box.size = localCorners[2] - localCorners[0];
 			}
 			else
 			{
 				Bounds bounds = NGUIMath.CalculateRelativeWidgetBounds(gameObject.transform, considerInactive);
-				box.center = bounds.center;
+				box.offset = bounds.center;
 				box.size = new Vector2(bounds.size.x, bounds.size.y);
 			}
 		}
@@ -603,7 +603,7 @@ public static class NGUITools
 			for (int num2 = componentsInChildren.Length; i < num2; i++)
 			{
 				UIWidget uIWidget = componentsInChildren[i];
-				if (!(uIWidget.cachedGameObject != go) || (!(uIWidget.collider != null) && !(uIWidget.GetComponent<Collider2D>() != null)))
+				if (!(uIWidget.cachedGameObject != go) || (!(uIWidget.GetComponent<Collider>() != null) && !(uIWidget.GetComponent<Collider2D>() != null)))
 				{
 					num = Mathf.Max(num, uIWidget.depth);
 				}
@@ -778,7 +778,7 @@ public static class NGUITools
 		if (uIRoot != null)
 		{
 			UICamera componentInChildren = uIRoot.GetComponentInChildren<UICamera>();
-			if (componentInChildren != null && componentInChildren.camera.isOrthoGraphic == advanced3D)
+			if (componentInChildren != null && componentInChildren.GetComponent<Camera>().orthographic == advanced3D)
 			{
 				trans = null;
 				uIRoot = null;
@@ -1345,7 +1345,7 @@ public static class NGUITools
 
 	public static Vector3[] GetSides(this Camera cam, float depth, Transform relativeTo)
 	{
-		if (cam.isOrthoGraphic)
+		if (cam.orthographic)
 		{
 			float orthographicSize = cam.orthographicSize;
 			float num = 0f - orthographicSize;
@@ -1411,7 +1411,7 @@ public static class NGUITools
 
 	public static Vector3[] GetWorldCorners(this Camera cam, float depth, Transform relativeTo)
 	{
-		if (cam.isOrthoGraphic)
+		if (cam.orthographic)
 		{
 			float orthographicSize = cam.orthographicSize;
 			float num = 0f - orthographicSize;
