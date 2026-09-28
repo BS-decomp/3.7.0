@@ -1,0 +1,1363 @@
+[
+  {
+    "index": 1,
+    "file": "shader_01_Particles_Additive.txt",
+    "shaderName": "Particles/Additive",
+    "container": "0000000000000000f000000000000000",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_TintColor",
+        "label": "Tint Color",
+        "type": "Color",
+        "default": "(0.5,0.5,0.5,0.5)"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      },
+      {
+        "name": "_InvFade",
+        "label": "Soft Particles Factor",
+        "type": "Range(0.01,3)",
+        "default": "1"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Fog",
+      "AlphaTest",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 2,
+    "file": "shader_02_Mobile_Particles_Additive.txt",
+    "shaderName": "Mobile/Particles/Additive",
+    "container": "0000000000000000f000000000000000",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 3,
+    "file": "shader_03_Hidden_Unlit_Transparent_Colored_2.txt",
+    "shaderName": "Hidden/Unlit/Transparent Colored 2",
+    "container": "1682092270f88d04bb434756a984ea87",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 4,
+    "file": "shader_04_Hidden_Unlit_Transparent_Packed_1.txt",
+    "shaderName": "Hidden/Unlit/Transparent Packed 1",
+    "container": "182695e850938314fa6675a8926ad9ee",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 5,
+    "file": "shader_05_Hidden_Unlit_Transparent_Masked_3.txt",
+    "shaderName": "Hidden/Unlit/Transparent Masked 3",
+    "container": "222c64d503379884db00185ebbe08590",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      },
+      {
+        "name": "_Mask",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 6,
+    "file": "shader_06_Hidden_Unlit_Text_3.txt",
+    "shaderName": "Hidden/Unlit/Text 3",
+    "container": "27275fc7df2ec0346ba12831e6a01345",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 7,
+    "file": "shader_07_Hidden_Unlit_Transparent_Masked_1.txt",
+    "shaderName": "Hidden/Unlit/Transparent Masked 1",
+    "container": "2cd1f5408130bdc4cbcf8c8fab8efd21",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      },
+      {
+        "name": "_Mask",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 8,
+    "file": "shader_08_Hidden_Unlit_Text_2.txt",
+    "shaderName": "Hidden/Unlit/Text 2",
+    "container": "37590480333382341b5007dec2a032c6",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 9,
+    "file": "shader_09_Hidden_Unlit_Premultiplied_Colored_3.txt",
+    "shaderName": "Hidden/Unlit/Premultiplied Colored 3",
+    "container": "5e82b392f79aa394fb1a579743600d5f",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 10,
+    "file": "shader_10_Hidden_Unlit_Premultiplied_Colored_2.txt",
+    "shaderName": "Hidden/Unlit/Premultiplied Colored 2",
+    "container": "65ca32170bb371f459991a5d7696a9ba",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 11,
+    "file": "shader_11_Hidden_Unlit_Transparent_Colored_TextureClip_.txt",
+    "shaderName": "Hidden/Unlit/Transparent Colored (TextureClip)",
+    "container": "720c2c242cde13e4188964c550502b5e",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 12,
+    "file": "shader_12_Unlit_Text.txt",
+    "shaderName": "Unlit/Text",
+    "container": "773417da4aa1b46409bd1e7574dcb251",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 13,
+    "file": "shader_13_Hidden_Unlit_Premultiplied_Colored_TextureClip_.txt",
+    "shaderName": "Hidden/Unlit/Premultiplied Colored (TextureClip)",
+    "container": "773952d1ab5b7714392cdc5473b20244",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 14,
+    "file": "shader_14_Hidden_Unlit_Transparent_Colored_3.txt",
+    "shaderName": "Hidden/Unlit/Transparent Colored 3",
+    "container": "7c0a1aa668787ad42a48d1a535825520",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 15,
+    "file": "shader_15_ProBuilder_UnlitVertexColor.txt",
+    "shaderName": "ProBuilder/UnlitVertexColor",
+    "container": "84f04ba86cd824249bb1c2029be83101",
+    "hasCompiledPrograms": true,
+    "properties": [],
+    "stateTokens": [
+      "Blend",
+      "Cull",
+      "AlphaTest",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 16,
+    "file": "shader_16_Unlit_Transparent_Masked.txt",
+    "shaderName": "Unlit/Transparent Masked",
+    "container": "9300d87db4ad0b0439f6fb97c3ce8ccf",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      },
+      {
+        "name": "_Mask",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 17,
+    "file": "shader_17_Hidden_Unlit_Premultiplied_Colored_1.txt",
+    "shaderName": "Hidden/Unlit/Premultiplied Colored 1",
+    "container": "93c84009f8f004b4f84697c8cb12dd63",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 18,
+    "file": "shader_18_Hidden_ProBuilder_HideVertices.txt",
+    "shaderName": "Hidden/ProBuilder/HideVertices",
+    "container": "99ab5b57a637bdb4192babafc1298bee",
+    "hasCompiledPrograms": true,
+    "properties": [],
+    "stateTokens": [
+      "Tags {"
+    ]
+  },
+  {
+    "index": 19,
+    "file": "shader_19_Hidden_Unlit_Text_1.txt",
+    "shaderName": "Hidden/Unlit/Text 1",
+    "container": "9f39f1d1f2f3ee04bb793082eee05819",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 20,
+    "file": "shader_20_Hidden_Unlit_Transparent_Masked_2.txt",
+    "shaderName": "Hidden/Unlit/Transparent Masked 2",
+    "container": "c6f11eb0ceeb5e044b3199208e1a99bf",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      },
+      {
+        "name": "_Mask",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 21,
+    "file": "shader_21_Hidden_Unlit_Transparent_Colored_1.txt",
+    "shaderName": "Hidden/Unlit/Transparent Colored 1",
+    "container": "cf9ebc36d43f657468fecb524763e3bc",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 22,
+    "file": "shader_22_Hidden_Unlit_Transparent_Packed_3.txt",
+    "shaderName": "Hidden/Unlit/Transparent Packed 3",
+    "container": "d1ba9e7ba321b2c4d97f6a19f1deab6a",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 23,
+    "file": "shader_23_Unlit_Transparent_Colored_Packed_TextureClip_.txt",
+    "shaderName": "Unlit/Transparent Colored (Packed) (TextureClip)",
+    "container": "e37f44f1a08cf594fb6b3919774527ed",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 24,
+    "file": "shader_24_Unlit_Premultiplied_Colored.txt",
+    "shaderName": "Unlit/Premultiplied Colored",
+    "container": "ed5591596df551e4c8f4b05ce88a7a07",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 25,
+    "file": "shader_25_Hidden_Unlit_Text_TextureClip_.txt",
+    "shaderName": "Hidden/Unlit/Text (TextureClip)",
+    "container": "eec9c90e5acd4d74d9e021119fc70cf8",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Alpha (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 26,
+    "file": "shader_26_Unlit_Transparent_Packed.txt",
+    "shaderName": "Unlit/Transparent Packed",
+    "container": "f3fd145b191cf4040ac6b55cda352a53",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 27,
+    "file": "shader_27_Hidden_Unlit_Transparent_Packed_2.txt",
+    "shaderName": "Hidden/Unlit/Transparent Packed 2",
+    "container": "f4f0faf73e6bf89419cf29b611f29ade",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 28,
+    "file": "shader_28_Unlit_Transparent_Colored.txt",
+    "shaderName": "Unlit/Transparent Colored",
+    "container": "sharedassets1.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB), Alpha (A)",
+        "type": "2D",
+        "default": "\"black\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Offset",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 29,
+    "file": "shader_29_Particles_Alpha_Blended.txt",
+    "shaderName": "Particles/Alpha Blended",
+    "container": "sharedassets10.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_TintColor",
+        "label": "Tint Color",
+        "type": "Color",
+        "default": "(0.5,0.5,0.5,0.5)"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      },
+      {
+        "name": "_InvFade",
+        "label": "Soft Particles Factor",
+        "type": "Range(0.01,3)",
+        "default": "1"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "AlphaTest",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 30,
+    "file": "shader_30_ProBuilder_Diffuse_Vertex_Color.txt",
+    "shaderName": "ProBuilder/Diffuse Vertex Color",
+    "container": "sharedassets14.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "ColorMask",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 31,
+    "file": "shader_31_Mobile_VertexLit.txt",
+    "shaderName": "Mobile/VertexLit",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Lighting",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 32,
+    "file": "shader_32_Mobile_Unlit_Supports_Lightmap_.txt",
+    "shaderName": "Mobile/Unlit (Supports Lightmap)",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 33,
+    "file": "shader_33_OptimizedSkybox.txt",
+    "shaderName": "OptimizedSkybox",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "ZWrite",
+      "Fog",
+      "SetTexture"
+    ]
+  },
+  {
+    "index": 34,
+    "file": "shader_34_ProBuilder_Unlit_Solid_Color.txt",
+    "shaderName": "ProBuilder/Unlit Solid Color",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_Color",
+        "label": "Color Tint",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "AlphaTest",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 35,
+    "file": "shader_35_MADFINGER_Particles_Additive_TwoSide.txt",
+    "shaderName": "MADFINGER/Particles/Additive TwoSide",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_TintColor",
+        "label": "Tint Color",
+        "type": "Color",
+        "default": "(0.5,0.5,0.5,0.5)"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Fog",
+      "AlphaTest",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 36,
+    "file": "shader_36_MADFINGER_Diffuse_Simple.txt",
+    "shaderName": "MADFINGER/Diffuse/Simple",
+    "container": "sharedassets2.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "SetTexture"
+    ]
+  },
+  {
+    "index": 37,
+    "file": "shader_37_Mobile_VertexLit_Only_Directional_Lights_.txt",
+    "shaderName": "Mobile/VertexLit (Only Directional Lights)",
+    "container": "sharedassets3.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 38,
+    "file": "shader_38_Mobile_Particles_Alpha_Blended.txt",
+    "shaderName": "Mobile/Particles/Alpha Blended",
+    "container": "sharedassets3.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 39,
+    "file": "shader_39_Mobile_Particles_Multiply.txt",
+    "shaderName": "Mobile/Particles/Multiply",
+    "container": "sharedassets3.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 40,
+    "file": "shader_40_Unlit_Transparent.txt",
+    "shaderName": "Unlit/Transparent",
+    "container": "sharedassets3.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB) Trans (A)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 41,
+    "file": "shader_41_MADFINGER_Transparent_Blinking_GodRays.txt",
+    "shaderName": "MADFINGER/Transparent/Blinking GodRays",
+    "container": "sharedassets3.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      },
+      {
+        "name": "_FadeOutDistNear",
+        "label": "Near fadeout dist",
+        "type": "Float",
+        "default": "10"
+      },
+      {
+        "name": "_FadeOutDistFar",
+        "label": "Far fadeout dist",
+        "type": "Float",
+        "default": "10000"
+      },
+      {
+        "name": "_Multiplier",
+        "label": "Color multiplier",
+        "type": "Float",
+        "default": "1"
+      },
+      {
+        "name": "_Bias",
+        "label": "Bias",
+        "type": "Float",
+        "default": "0"
+      },
+      {
+        "name": "_TimeOnDuration",
+        "label": "ON duration",
+        "type": "Float",
+        "default": "0.5"
+      },
+      {
+        "name": "_TimeOffDuration",
+        "label": "OFF duration",
+        "type": "Float",
+        "default": "0.5"
+      },
+      {
+        "name": "_BlinkingTimeOffsScale",
+        "label": "Blinking time offset scale (seconds)",
+        "type": "Float",
+        "default": "5"
+      },
+      {
+        "name": "_SizeGrowStartDist",
+        "label": "Size grow start dist",
+        "type": "Float",
+        "default": "5"
+      },
+      {
+        "name": "_SizeGrowEndDist",
+        "label": "Size grow end dist",
+        "type": "Float",
+        "default": "50"
+      },
+      {
+        "name": "_MaxGrowSize",
+        "label": "Max grow size",
+        "type": "Float",
+        "default": "2.5"
+      },
+      {
+        "name": "_NoiseAmount",
+        "label": "Noise amount (when zero, pulse wave is used)",
+        "type": "Range(0,0.5)",
+        "default": "0"
+      },
+      {
+        "name": "_Color",
+        "label": "Color",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 42,
+    "file": "shader_42_Mobile_Particles_VertexLit_Blended.txt",
+    "shaderName": "Mobile/Particles/VertexLit Blended",
+    "container": "sharedassets5.assets",
+    "hasCompiledPrograms": false,
+    "properties": [
+      {
+        "name": "_EmisColor",
+        "label": "Emissive Color",
+        "type": "Color",
+        "default": "(0.2,0.2,0.2,0)"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Particle Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "Lighting",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 43,
+    "file": "shader_43_MADFINGER_Transparent_GodRays.txt",
+    "shaderName": "MADFINGER/Transparent/GodRays",
+    "container": "sharedassets53.assets",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Base texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      },
+      {
+        "name": "_FadeOutDistNear",
+        "label": "Near fadeout dist",
+        "type": "Float",
+        "default": "10"
+      },
+      {
+        "name": "_FadeOutDistFar",
+        "label": "Far fadeout dist",
+        "type": "Float",
+        "default": "10000"
+      },
+      {
+        "name": "_Multiplier",
+        "label": "Multiplier",
+        "type": "Float",
+        "default": "1"
+      },
+      {
+        "name": "_ContractionAmount",
+        "label": "Near contraction amount",
+        "type": "Float",
+        "default": "5"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 44,
+    "file": "shader_44_VertexLit.txt",
+    "shaderName": "VertexLit",
+    "container": "unity_builtin_extra",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_Color",
+        "label": "Main Color",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      },
+      {
+        "name": "_SpecColor",
+        "label": "Spec Color",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      },
+      {
+        "name": "_Emission",
+        "label": "Emissive Color",
+        "type": "Color",
+        "default": "(0,0,0,0)"
+      },
+      {
+        "name": "_Shininess",
+        "label": "Shininess",
+        "type": "Range(0.01,1)",
+        "default": "0.7"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Cull",
+      "Offset",
+      "Fog",
+      "Lighting",
+      "SetTexture",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 45,
+    "file": "shader_45_Diffuse.txt",
+    "shaderName": "Diffuse",
+    "container": "unity_builtin_extra",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_Color",
+        "label": "Main Color",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      },
+      {
+        "name": "_MainTex",
+        "label": "Base (RGB)",
+        "type": "2D",
+        "default": "\"white\" {}"
+      }
+    ],
+    "stateTokens": [
+      "LOD",
+      "Blend",
+      "ZWrite",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 46,
+    "file": "shader_46_UI_Default.txt",
+    "shaderName": "UI/Default",
+    "container": "unity_builtin_extra",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_Color",
+        "label": "Tint",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      },
+      {
+        "name": "_StencilComp",
+        "label": "Stencil Comparison",
+        "type": "Float",
+        "default": "8"
+      },
+      {
+        "name": "_Stencil",
+        "label": "Stencil ID",
+        "type": "Float",
+        "default": "0"
+      },
+      {
+        "name": "_StencilOp",
+        "label": "Stencil Operation",
+        "type": "Float",
+        "default": "0"
+      },
+      {
+        "name": "_StencilWriteMask",
+        "label": "Stencil Write Mask",
+        "type": "Float",
+        "default": "255"
+      },
+      {
+        "name": "_StencilReadMask",
+        "label": "Stencil Read Mask",
+        "type": "Float",
+        "default": "255"
+      },
+      {
+        "name": "_ColorMask",
+        "label": "Color Mask",
+        "type": "Float",
+        "default": "15"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Fog",
+      "Tags {"
+    ]
+  },
+  {
+    "index": 47,
+    "file": "shader_47_UI_Default_Font.txt",
+    "shaderName": "UI/Default Font",
+    "container": "unity_builtin_extra",
+    "hasCompiledPrograms": true,
+    "properties": [
+      {
+        "name": "_MainTex",
+        "label": "Font Texture",
+        "type": "2D",
+        "default": "\"white\" {}"
+      },
+      {
+        "name": "_Color",
+        "label": "Text Color",
+        "type": "Color",
+        "default": "(1,1,1,1)"
+      },
+      {
+        "name": "_StencilComp",
+        "label": "Stencil Comparison",
+        "type": "Float",
+        "default": "8"
+      },
+      {
+        "name": "_Stencil",
+        "label": "Stencil ID",
+        "type": "Float",
+        "default": "0"
+      },
+      {
+        "name": "_StencilOp",
+        "label": "Stencil Operation",
+        "type": "Float",
+        "default": "0"
+      },
+      {
+        "name": "_StencilWriteMask",
+        "label": "Stencil Write Mask",
+        "type": "Float",
+        "default": "255"
+      },
+      {
+        "name": "_StencilReadMask",
+        "label": "Stencil Read Mask",
+        "type": "Float",
+        "default": "255"
+      },
+      {
+        "name": "_ColorMask",
+        "label": "Color Mask",
+        "type": "Float",
+        "default": "15"
+      }
+    ],
+    "stateTokens": [
+      "Blend",
+      "ZWrite",
+      "Cull",
+      "ColorMask",
+      "Fog",
+      "Tags {"
+    ]
+  }
+]
