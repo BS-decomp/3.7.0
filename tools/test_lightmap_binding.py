@@ -117,9 +117,11 @@ class LightmapBindingTests(unittest.TestCase):
         self.assertIn("Validate made no scene changes", source)
 
         atlas_guid = guid_from_meta(CLIENT / "Assets/Scripts/Assembly-CSharp/MeshAtlas.cs.meta")
+        binder_guid = guid_from_meta(BINDER_CLIENT.with_suffix(".cs.meta"))
         manifest = json.loads((CLIENT_MANIFESTS / "50_Shooting Range.json").read_text())
         scene_path = CLIENT / manifest["scenePath"]
         scene = scene_path.read_text(errors="replace")
+        already_bound = "guid: " + binder_guid in scene
         blocks = {
             int(match.group(2)): (int(match.group(1)), match.group(3))
             for match in re.finditer(r"(?ms)^--- !u!(\d+) &(\d+)\n(.*?)(?=^--- !u!|\Z)", scene)
@@ -148,7 +150,10 @@ class LightmapBindingTests(unittest.TestCase):
                 r"originalMesh: \{fileID: \d+, guid: ([0-9a-f]{32})", atlas_body).group(1)
             mesh_settings = re.search(r"(?m)^\s*meshSettings: (\d+)", atlas_body).group(1)
             self.assertIn("/RecoveredGeometry/MapGeometry-", guid_paths_for_test(recovered_guid, CLIENT))
-            self.assertNotEqual(recovered_guid, atlas_original_guid)
+            # Before binding, the source may still be the original mesh. Once
+            # bound, MeshAtlas must clone the recovered mesh, not overwrite it.
+            if already_bound:
+                self.assertEqual(recovered_guid, atlas_original_guid, record["objectName"])
             self.assertEqual(mesh_settings, "0")
             atlas_renderers.append(record["rendererId"])
 

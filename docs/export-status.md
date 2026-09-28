@@ -53,3 +53,21 @@ lightmap decoding can differ from editor output.
 Caveat on undo: binder backups are written to `RecoveryBackups/`, which is
 gitignored. The in-editor Revert command therefore only works on the machine
 where Bind was run; from a clean clone, revert via `git`.
+
+## 2026-09-28 — pre-publication snapshot audit
+
+An offline pass over all 3,891 static-batched renderers caught 24 serialized
+`MeshFilter` references set to `{fileID: 0}` by `MeshAtlas` edit-mode clones:
+4 lightmapped objects in Shooting Range and 20 non-lightmapped objects in Hill,
+Military Range and Playground. Their exact per-renderer recovered mesh assets
+were already present. Persistent references were restored; for the 20
+non-lightmapped objects, `MeshAtlas.originalMesh` was also retargeted to those
+assets, as the lightmap binder had already done for the other four.
+
+`python -m unittest discover -s tools -p 'test_*.py'` now checks all 3,891
+persistent mesh references and all 24 `MeshAtlas` sources. The nine tests
+requiring the external raw export ZIP skip on a clean clone; they are not
+reported as having passed. The four patched scenes have **not yet been
+reopened and resaved in Unity 5.6.7f1**; do that, then rerun the offline tests
+before describing this snapshot as editor-verified. Match play and Android
+build/device testing remain open.

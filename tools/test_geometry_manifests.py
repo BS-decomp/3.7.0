@@ -3,9 +3,10 @@ import json
 import unittest
 
 from audit_static_batches import ROOT, audit
-from build_geometry_manifests import generate_one, mappings, output_name
+from build_geometry_manifests import EXPORT_ZIP, generate_one, mappings, output_name
 
 
+@unittest.skipUnless(EXPORT_ZIP.is_file(), "requires the external AssetRipper export ZIP")
 class GeometryManifestTests(unittest.TestCase):
     def test_all_manifests_reproducible_and_order_preserved(self):
         names = mappings()

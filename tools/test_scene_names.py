@@ -6,8 +6,10 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+EXPORT_ZIP = ROOT / 'exports/BlockStrike-608-Unity-4.7.2f1.zip'
 
 
+@unittest.skipUnless(EXPORT_ZIP.is_file(), "requires the external AssetRipper export ZIP")
 class SceneNamesTests(unittest.TestCase):
     def test_mapping_and_references(self):
         entries = json.loads((ROOT / 'tools/scene-names.json').read_text())

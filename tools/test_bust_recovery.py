@@ -5,7 +5,7 @@ import struct
 import unittest
 import zipfile
 from audit_static_batches import ROOT, audit, blocks, field, ref, mesh_data
-from build_geometry_manifests import generate, vector
+from build_geometry_manifests import EXPORT_ZIP, generate, vector
 
 
 def add(a, b): return [x+y for x, y in zip(a, b)]
@@ -18,6 +18,7 @@ def rotate(v, q):
     return add(v, add([q[3]*x for x in t], cross(q[:3], t)))
 
 
+@unittest.skipUnless(EXPORT_ZIP.is_file(), "requires the external AssetRipper export ZIP")
 class BustRecoveryTests(unittest.TestCase):
     def test_manifest_reproducible(self):
         saved = json.loads((ROOT/'tools/unity-editor/MapGeometry/28_Bust.json').read_text())
