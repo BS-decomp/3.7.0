@@ -1,0 +1,282 @@
+[
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Better/SXZtRDEyM0ExMpMpNg0TWeEO.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Better/Better.unity",
+    "name": "Better"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Eazy/SXZtRDEyM0ExMqT56CgdT0nX.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Eazy/Eazy.unity",
+    "name": "Eazy"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Fall/SXZtRDEyM0ExMn8UU0NNCJuU.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Fall/Fall.unity",
+    "name": "Fall"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Harder/SXZtRDEyM0ExMp825ziJoZoA.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Harder/Harder.unity",
+    "name": "Harder"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Jumpout/SXZtRDEyM0ExMnD5usAitoqz.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Jumpout/Jumpout.unity",
+    "name": "Jumpout"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Speed/SXZtRDEyM0ExMu76A8PdHHmU.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Speed/Speed.unity",
+    "name": "Speed"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Stronger/SXZtRDEyM0ExMn7I7CaqJpj2q7QUQsSdUSY=.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Stronger/Stronger.unity",
+    "name": "Stronger"
+  },
+  {
+    "old": "Assets/Levels/Maps/BunnyHop/Trainer/SXZtRDEyM0ExMqjYA6WN28lJ.unity",
+    "new": "Assets/Levels/Maps/BunnyHop/Trainer/Trainer.unity",
+    "name": "Trainer"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Ciald/SXZtRDEyM0ExMnwnmLaTRK71.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Ciald/Ciald.unity",
+    "name": "Ciald"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Firati/SXZtRDEyM0ExMlxKfseMy2M3.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Firati/Firati.unity",
+    "name": "Firati"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Fractal/SXZtRDEyM0ExMsFrZCy3ZgaU.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Fractal/Fractal.unity",
+    "name": "Fractal"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Grade/SXZtRDEyM0ExMkF1F4evyFMu.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Grade/Grade.unity",
+    "name": "Grade"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Jacuda/SXZtRDEyM0ExMrixt83oc8LO.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Jacuda/Jacuda.unity",
+    "name": "Jacuda"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Journey/SXZtRDEyM0ExMi2PeVSuA3VG.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Journey/Journey.unity",
+    "name": "Journey"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Long/SXZtRDEyM0ExMuMzeebpH5YH.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Long/Long.unity",
+    "name": "Long"
+  },
+  {
+    "old": "Assets/Levels/Maps/DeathRun/Stander/SXZtRDEyM0ExMjMOjHvsE3pv.unity",
+    "new": "Assets/Levels/Maps/DeathRun/Stander/Stander.unity",
+    "name": "Stander"
+  },
+  {
+    "old": "Assets/Levels/Maps/Football/Skyfield/SXZtRDEyM0ExMi1bcOD+sdiU4cjrV+dSu9Y=.unity",
+    "new": "Assets/Levels/Maps/Football/Skyfield/Skyfield.unity",
+    "name": "Skyfield"
+  },
+  {
+    "old": "Assets/Levels/Maps/Football/Sunshine/SXZtRDEyM0ExMn9MYLjvIM2R1laoSrfXVvI=.unity",
+    "new": "Assets/Levels/Maps/Football/Sunshine/Sunshine.unity",
+    "name": "Sunshine"
+  },
+  {
+    "old": "Assets/Levels/Maps/HungerGames/Coliseum/SXZtRDEyM0ExMiq6SvGioE23z8+JvVAppJU=.unity",
+    "new": "Assets/Levels/Maps/HungerGames/Coliseum/Coliseum.unity",
+    "name": "Coliseum"
+  },
+  {
+    "old": "Assets/Levels/Maps/HungerGames/Labyrinth/SXZtRDEyM0ExMreXmcWK4UwhWEQWdRVDah8=.unity",
+    "new": "Assets/Levels/Maps/HungerGames/Labyrinth/Labyrinth.unity",
+    "name": "Labyrinth"
+  },
+  {
+    "old": "Assets/Levels/Maps/HungerGames/Pyramids/SXZtRDEyM0ExMhEkbWSJaH+ra6FuVq+8rLY=.unity",
+    "new": "Assets/Levels/Maps/HungerGames/Pyramids/Pyramids.unity",
+    "name": "Pyramids"
+  },
+  {
+    "old": "Assets/Levels/Maps/Hunter/Hill/SXZtRDEyM0ExMjzFQ6Vz1Apc.unity",
+    "new": "Assets/Levels/Maps/Hunter/Hill/Hill.unity",
+    "name": "Hill"
+  },
+  {
+    "old": "Assets/Levels/Maps/Hunter/Military Range/SXZtRDEyM0ExMkO2twuj7YgbXk4niyZnbOg=.unity",
+    "new": "Assets/Levels/Maps/Hunter/Military Range/Military Range.unity",
+    "name": "Military Range"
+  },
+  {
+    "old": "Assets/Levels/Maps/Hunter/Rise/SXZtRDEyM0ExMjahcGmAPLkB.unity",
+    "new": "Assets/Levels/Maps/Hunter/Rise/Rise.unity",
+    "name": "Rise"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/100HP/SXZtRDEyM0ExMlQhA4YygKG3.unity",
+    "new": "Assets/Levels/Maps/Others/100HP/100HP.unity",
+    "name": "100HP"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/3000/SXZtRDEyM0ExMp0tC0w2pSFN.unity",
+    "new": "Assets/Levels/Maps/Others/3000/3000.unity",
+    "name": "3000"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Aim/SXZtRDEyM0ExMqnnCTQ9x0kL.unity",
+    "new": "Assets/Levels/Maps/Others/Aim/Aim.unity",
+    "name": "Aim"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Apache/SXZtRDEyM0ExMpwOqtbV6J#8.unity",
+    "new": "Assets/Levels/Maps/Others/Apache/Apache.unity",
+    "name": "Apache"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Bust/SXZtRDEyM0ExMkeyUq#HDyzp.unity",
+    "new": "Assets/Levels/Maps/Others/Bust/Bust.unity",
+    "name": "Bust"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Bust 2/SXZtRDEyM0ExMjp61a9bR#f9.unity",
+    "new": "Assets/Levels/Maps/Others/Bust 2/Bust 2.unity",
+    "name": "Bust 2"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Bust 2x2/SXZtRDEyM0ExMlFJx2Ej2Su#GvRxvZF#1oY=.unity",
+    "new": "Assets/Levels/Maps/Others/Bust 2x2/Bust 2x2.unity",
+    "name": "Bust 2x2"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Casta/SXZtRDEyM0ExMtDlZHuWgqw0.unity",
+    "new": "Assets/Levels/Maps/Others/Casta/Casta.unity",
+    "name": "Casta"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Compact/SXZtRDEyM0ExMpw5sHJuNwJq.unity",
+    "new": "Assets/Levels/Maps/Others/Compact/Compact.unity",
+    "name": "Compact"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Harage/SXZtRDEyM0ExMj3DNl#8AJkX.unity",
+    "new": "Assets/Levels/Maps/Others/Harage/Harage.unity",
+    "name": "Harage"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/India/SXZtRDEyM0ExMpN#4XQ2xMup.unity",
+    "new": "Assets/Levels/Maps/Others/India/India.unity",
+    "name": "India"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Nauts/SXZtRDEyM0ExMhEFq1I6HgJ6.unity",
+    "new": "Assets/Levels/Maps/Others/Nauts/Nauts.unity",
+    "name": "Nauts"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Office/SXZtRDEyM0ExMv3e9CxPZd1r.unity",
+    "new": "Assets/Levels/Maps/Others/Office/Office.unity",
+    "name": "Office"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Pool/SXZtRDEyM0ExMljnhJFSW6Pk.unity",
+    "new": "Assets/Levels/Maps/Others/Pool/Pool.unity",
+    "name": "Pool"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Rast/SXZtRDEyM0ExMkXdR2a6zZ05.unity",
+    "new": "Assets/Levels/Maps/Others/Rast/Rast.unity",
+    "name": "Rast"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Skyline/SXZtRDEyM0ExMvb2hVtpknEF.unity",
+    "new": "Assets/Levels/Maps/Others/Skyline/Skyline.unity",
+    "name": "Skyline"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Snow/SXZtRDEyM0ExMtXmtSaGIi3S.unity",
+    "new": "Assets/Levels/Maps/Others/Snow/Snow.unity",
+    "name": "Snow"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Storage/SXZtRDEyM0ExMo1rJiu+tG#I.unity",
+    "new": "Assets/Levels/Maps/Others/Storage/Storage.unity",
+    "name": "Storage"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Tecaza/SXZtRDEyM0ExMjN8drUcKHxU.unity",
+    "new": "Assets/Levels/Maps/Others/Tecaza/Tecaza.unity",
+    "name": "Tecaza"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Turbine/SXZtRDEyM0ExMs8PzKz6RBh+.unity",
+    "new": "Assets/Levels/Maps/Others/Turbine/Turbine.unity",
+    "name": "Turbine"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Upload/SXZtRDEyM0ExMs15HcsJxV5l.unity",
+    "new": "Assets/Levels/Maps/Others/Upload/Upload.unity",
+    "name": "Upload"
+  },
+  {
+    "old": "Assets/Levels/Maps/Others/Villa/SXZtRDEyM0ExMlusyoYopQFV.unity",
+    "new": "Assets/Levels/Maps/Others/Villa/Villa.unity",
+    "name": "Villa"
+  },
+  {
+    "old": "Assets/Levels/Maps/PvP/1v1/SXZtRDEyM0ExMm8wHWj9rhtl.unity",
+    "new": "Assets/Levels/Maps/PvP/1v1/1v1.unity",
+    "name": "1v1"
+  },
+  {
+    "old": "Assets/Levels/Maps/PvP/Deeddo/SXZtRDEyM0ExMmdaO98WXhDX.unity",
+    "new": "Assets/Levels/Maps/PvP/Deeddo/Deeddo.unity",
+    "name": "Deeddo"
+  },
+  {
+    "old": "Assets/Levels/Maps/Surf/Jet/SXZtRDEyM0ExMrxflFUQG5Ar.unity",
+    "new": "Assets/Levels/Maps/Surf/Jet/Jet.unity",
+    "name": "Jet"
+  },
+  {
+    "old": "Assets/Levels/Maps/Tutorials/MainTutorial/SXZtRDEyM0ExMhWEkzX1bZ#PunACCbj2Ch0=.unity",
+    "new": "Assets/Levels/Maps/Tutorials/MainTutorial/MainTutorial.unity",
+    "name": "MainTutorial"
+  },
+  {
+    "old": "Assets/Levels/Maps/Tutorials/ShootingRange/SXZtRDEyM0ExMnfsAH+2iMvWM3yRovTerGo=.unity",
+    "new": "Assets/Levels/Maps/Tutorials/ShootingRange/Shooting Range.unity",
+    "name": "Shooting Range"
+  },
+  {
+    "old": "Assets/Levels/Maps/Zombie/Battleforce/SXZtRDEyM0ExMvWLL9P5pwRzI40mmQkgzgI=.unity",
+    "new": "Assets/Levels/Maps/Zombie/Battleforce/Battleforce.unity",
+    "name": "Battleforce"
+  },
+  {
+    "old": "Assets/Levels/Maps/Zombie/Playground/SXZtRDEyM0ExMkMHQAbNCahHkLbugP1jli0=.unity",
+    "new": "Assets/Levels/Maps/Zombie/Playground/Playground.unity",
+    "name": "Playground"
+  },
+  {
+    "old": "Assets/Levels/SXZtRDEyM0ExMmPxOjqEby+Q.unity",
+    "new": "Assets/Levels/Menu.unity",
+    "name": "Menu"
+  },
+  {
+    "old": "Assets/Levels/SXZtRDEyM0ExMspAUojcTJS5.unity",
+    "new": "Assets/Levels/Logo.unity",
+    "name": "Logo"
+  },
+  {
+    "old": "Assets/Levels/SXZtRDEyM0ExMuMzsSjOU6urRq+MUbuuE6M=.unity",
+    "new": "Assets/Levels/AwakeScene.unity",
+    "name": "AwakeScene"
+  }
+]

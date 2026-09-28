@@ -1,0 +1,3188 @@
+{
+ "source": "GameSettings.asset 608 (ObscuredString decoded, XOR key 4441; ObscuredInt hiddenValue XOR currentCryptoKey)",
+ "weapon_order": [
+  "AK-47",
+  "Deagle",
+  "Glock",
+  "Knife",
+  "M4A1",
+  "Magnum",
+  "UZI",
+  "AWP",
+  "Nova",
+  "Axe",
+  "Bat",
+  "UMP-45",
+  "USP-S",
+  "Springfield",
+  "AUG",
+  "Crowbar",
+  "Zombie",
+  "P90",
+  "FAMAS",
+  "Shield",
+  "TEC-9",
+  "Katana",
+  "LSAT",
+  "SCAR",
+  "SPAS-12",
+  "AA-12",
+  "Five-seveN",
+  "Galil",
+  "G36",
+  "R700",
+  "Karambit",
+  "Hunting knife",
+  "Bayonet",
+  "Combat knife",
+  "Falchion",
+  "Beretta",
+  "Sawed-Off",
+  "M249"
+ ],
+ "weapon_skins": {
+  "1": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "4c4b6876590f25d42a0cfdde8ed28305",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Blue Team",
+    "Price": 0,
+    "guid": "9f2aae7400818e84988848102c4049d5",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Carbonite",
+    "Price": 0,
+    "guid": "1462b535b52d5c544927863e8eff1632",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Forest",
+    "Price": 25,
+    "guid": "818cb618af4b4584080f250f89d51bbe",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Frosted Edge",
+    "Price": 0,
+    "guid": "19704fa54ba50fb41a962e66d8da80b6",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Opressor",
+    "Price": 0,
+    "guid": "5a06bdaceba5c9a479041ef425d159c8",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Red Team",
+    "Price": 0,
+    "guid": "893fe9e5ce24f5847a243ebc43582b9a",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Zeblue",
+    "Price": 0,
+    "guid": "9664d5eb4ec3c48419d57d49167fd5b6",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Black Steel",
+    "Price": 0,
+    "guid": "2acbb55edfc07254daf892b05f0ecb19",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Orange",
+    "Price": 0,
+    "guid": "2c0cfb18f8016b643ab41c63f6e990c5",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Drumcore Redux",
+    "Price": 150,
+    "guid": "70036686e12033f4a86bda3d82ca87f8",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Marshmall",
+    "Price": 0,
+    "guid": "088fce9313900b1408fcd923532f98dd",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "5829c29cd1e85ec41b691683ab5896e4",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Host",
+    "Price": 125,
+    "guid": "57dbbd39adf12144889b91031970764e",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "692aeebea42623c4387a02de61ebdc0d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Real Power",
+    "Price": 0,
+    "guid": "9c197d0f0154ac9449bc6a3384e7fa88",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 16,
+    "SkinName": "Experienced",
+    "Price": 0,
+    "guid": "32475316bfa3a4348b1f70dc46e99142",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 17,
+    "SkinName": "Three Colour",
+    "Price": 0,
+    "guid": "6722817f3ee173f40be057193949fef5",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 18,
+    "SkinName": "Trexx",
+    "Price": 0,
+    "guid": "42a8b6562f6649c4293971a261594644",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 19,
+    "SkinName": "Gold Sky",
+    "Price": 0,
+    "guid": "c7e11adafed7885469f15471e9dc5c79",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 20,
+    "SkinName": "Carnage",
+    "Price": 0,
+    "guid": "4f62fdc5ac42c8740ac92d22ba4b1352",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 21,
+    "SkinName": "Easy",
+    "Price": 0,
+    "guid": "9d7bde1b48b34ed48a396a610cd77e6f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 22,
+    "SkinName": "Bio Ware",
+    "Price": 0,
+    "guid": "dbb9e604542b2314ba0782b70834d624",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 23,
+    "SkinName": "Breezy",
+    "Price": 0,
+    "guid": "3297504faa87cb4479b7aa58b805efa6",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 24,
+    "SkinName": "Noisy",
+    "Price": 0,
+    "guid": "99db61ba44d4ad04c94f2929b3537d9b",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 25,
+    "SkinName": "Shock",
+    "Price": 0,
+    "guid": "828a627dd91a3f2479a5647464385e1d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 26,
+    "SkinName": "P-War",
+    "Price": 0,
+    "guid": "6e294b894c9fcc341929e3cbc4d4f151",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 27,
+    "SkinName": "Incredible",
+    "Price": 0,
+    "guid": "299eb5c0c0c9e9e42b78193f732f4761",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 28,
+    "SkinName": "Jlister",
+    "Price": 0,
+    "guid": "6d4dca86683fdec4fb888f0ec228ec3a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 29,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "eb1f3e7348dc25a4c936d6674ec7f870",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 30,
+    "SkinName": "Wilderness",
+    "Price": 0,
+    "guid": "a585108fc69a0c14ea6111cb6db4574a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 31,
+    "SkinName": "Morrison",
+    "Price": 0,
+    "guid": "10b8611390d2cd24ba8aaff5cc89c583",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 32,
+    "SkinName": "Suicide",
+    "Price": 0,
+    "guid": "a4cbcea1a545000489e2a5fc2649572c",
+    "Rarity": 4
+   }
+  ],
+  "2": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "5d2c39a2032630a4791e7703d66a60d1",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "G42A",
+    "Price": 0,
+    "guid": "3aed66bc3e090b941858745c4de90682",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Agent",
+    "Price": 150,
+    "guid": "2de177144b278054e9d91d86ebb01702",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Execution",
+    "Price": 0,
+    "guid": "6eb8e6aecbf54964499070045df51729",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Fade",
+    "Price": 125,
+    "guid": "79bb8d06a1e4fff4c99efb21fc59fd69",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Night Fog",
+    "Price": 0,
+    "guid": "634d3a7389a4b774fa1eb7e22286f159",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Sandy",
+    "Price": 0,
+    "guid": "6c2eaeec1760df242880d474e58b6bd9",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "0ee63457870f22441b58229f6c6ef847",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "6645230cb2de347408a4af76ff39637a",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Darkside",
+    "Price": 0,
+    "guid": "f3e3df5a3f14dd144b0218ef5535768a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Navy",
+    "Price": 0,
+    "guid": "1828866f42465d543a77b68d40eaf76c",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Leveling",
+    "Price": 0,
+    "guid": "f45fcc0ce0a74d843abc25b02e74b9af",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Bloody Pink",
+    "Price": 0,
+    "guid": "0e485147cf169cb4fad01bbd6dabac8f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "614f40cf84dfa034dbbd65512fa37ac5",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Redmag",
+    "Price": 0,
+    "guid": "6d8208760c7786647ba7aacde290d066",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Future",
+    "Price": 0,
+    "guid": "1832c66e72643a3458f43deb234d425f",
+    "Rarity": 2
+   }
+  ],
+  "3": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "cb7aa041f4f062649ab56f50a5ad8752",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "3-4",
+    "Price": 0,
+    "guid": "2b17158769d283f43af795d25af00796",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Baye",
+    "Price": 0,
+    "guid": "b39c61e803c6f09419de53857626f551",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Blured",
+    "Price": 0,
+    "guid": "c8db77f620856e64299148b3d98120a8",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Galactic",
+    "Price": 150,
+    "guid": "e3895642b0114bc41aaedfc0bfe053c1",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Ice Cream",
+    "Price": 75,
+    "guid": "aac86803ad1aba34fa0dbfb0dd1065ad",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Infinity",
+    "Price": 0,
+    "guid": "9c7b4d8dac48d44419f9b92cbb4a6387",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Lava",
+    "Price": 0,
+    "guid": "43a6393e59e22ce4aafbe41069109046",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Lizard",
+    "Price": 0,
+    "guid": "093f35667b99c4c4d9772deb7dc6df6c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Toxic",
+    "Price": 0,
+    "guid": "834ec5c147e2bef45ad61d3c25023488",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Uchi",
+    "Price": 125,
+    "guid": "a19c2039f1ad4da47a5920538d64ab9a",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Violet Flowers",
+    "Price": 0,
+    "guid": "cd19f81a280126148b062df13844dc9b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Vomissa",
+    "Price": 0,
+    "guid": "709b8bbbeda15394baa1e75e85d30908",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Banana",
+    "Price": 0,
+    "guid": "708db14739c1b594e9a99126f9e5696b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Nozzle",
+    "Price": 0,
+    "guid": "f0e013cbb92b3a14ea982b5d8ae89ea4",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Rose",
+    "Price": 0,
+    "guid": "a7877bc471acc664a9f7430ce1eb18fe",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 16,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "662b7df28ade7834aa0acb3259238f12",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 17,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "83761e2a91785b049b216973f5793ba0",
+    "Rarity": 4
+   }
+  ],
+  "4": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "c403ae1ad7f1bcd4eb67b13faecac590",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Blacknife",
+    "Price": 0,
+    "guid": "128aadc24e682ce47b7c9d5329171a3d",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Bright",
+    "Price": 125,
+    "guid": "de2c923e1235e4e43a1f1f8f4196d193",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Cyan",
+    "Price": 0,
+    "guid": "30145af46bf26af488efa44227ad461a",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Fade",
+    "Price": 200,
+    "guid": "1fe1f8f4b0645a44a9069864ba7806cb",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Gold",
+    "Price": 0,
+    "guid": "0103720acb794174cbb081c387ffdf34",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Ocean",
+    "Price": 0,
+    "guid": "66f117ce46f3e03468efb3c190b7ab2f",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Rusty",
+    "Price": 0,
+    "guid": "a90faa320c1744947b8a26f88e549b45",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Japan Edge",
+    "Price": 0,
+    "guid": "5a493464cbd87eb4fb02f548a9e83b86",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Echotek",
+    "Price": 0,
+    "guid": "8bb6ff9720499b749be247a521937c34",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Ultraviolet",
+    "Price": 150,
+    "guid": "6fa5b12cdfd5abc45b1bff709f25bc8b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Green Dream",
+    "Price": 0,
+    "guid": "127085c03fcb04740a6f65e2ce73cfb1",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Booster",
+    "Price": 0,
+    "guid": "b96db7eee72c0544793fa5ab856f16e4",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "3985c672d0db7644b836420113071dc2",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Nightmare",
+    "Price": 0,
+    "guid": "2bb9c90bf17db324ba9e1684d8209ff8",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Necromor",
+    "Price": 0,
+    "guid": "40f8d4301ba65cb4abf202d4fddbc9a0",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 16,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "32f21d7ad01949a46975e201de866645",
+    "Rarity": 3
+   }
+  ],
+  "5": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "58ed1b675f89f53489db9826152c7594",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "A12",
+    "Price": 75,
+    "guid": "78bb41b49541fa4448d01a9850bcdcca",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Bloody Rain",
+    "Price": 0,
+    "guid": "8fb62f22944c8ad4a9485afa00a23b73",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Just Red",
+    "Price": 0,
+    "guid": "95a9274b3dc05b9498584ec3c36d1be7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Poisoned",
+    "Price": 0,
+    "guid": "af552c7e33a41d3489bd0ed74764e883",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Vomissa",
+    "Price": 200,
+    "guid": "a02d30c9a7716e642be369b976ff952c",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Lighting Strike",
+    "Price": 0,
+    "guid": "e02659cf0605af045a0b8f9702adb558",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "War Fox",
+    "Price": 0,
+    "guid": "1049481af1df4f949bb54358e140a7f7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Hunger",
+    "Price": 0,
+    "guid": "58973adbce87fef42a5308e20ad47275",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Lime",
+    "Price": 125,
+    "guid": "6c4bdfa3ccecbbd44b5f2d018791bd8a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Evo",
+    "Price": 0,
+    "guid": "b90aa886acc63734d948b328ea941057",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Grass",
+    "Price": 25,
+    "guid": "62c45ff1238ab5448806e4847e051a3f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "ef10be41f78cfc74f8eb5d84a634ff6d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Trooper",
+    "Price": 200,
+    "guid": "41c264a5544b71c4b8bcd97cd4a0d11d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "809a201c4a0b50648bfec5fc1c22adcb",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Jlister",
+    "Price": 0,
+    "guid": "3c59bfa4233cfc64ea4081aa165d52fb",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 16,
+    "SkinName": "Avernade",
+    "Price": 0,
+    "guid": "1cddb09fe04a22948aed10d01d58abcd",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 17,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "73d4ae5ca73c9b64793b22427064904b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 18,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "1c657228aad6bb04580958a4413dfaa4",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 19,
+    "SkinName": "Uprising",
+    "Price": 0,
+    "guid": "ff130e27b2fd4be4fbdb39407657a45f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 20,
+    "SkinName": "Cybotex",
+    "Price": 0,
+    "guid": "f28684608c2fc3944b8005ca7ac076e8",
+    "Rarity": 3
+   }
+  ],
+  "6": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "bf9674c2769536644863c9af55bbfd61",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Alien",
+    "Price": 0,
+    "guid": "b6f39d15b6aeff94fbd8de4563c0d53f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Deep",
+    "Price": 0,
+    "guid": "4b6361a08b34ac842b65e735b0ba5d5f",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Drago",
+    "Price": 0,
+    "guid": "960f340c86953534796043da864dd13f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Dream",
+    "Price": 0,
+    "guid": "7ad80a4e2ee214345994b110558668ea",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Fake Gold",
+    "Price": 25,
+    "guid": "7ffa8c5cc268aec458f44b289c709810",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Voodoo",
+    "Price": 75,
+    "guid": "dfed3c68110f7514e8729ebefa9fc9c4",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Bandage",
+    "Price": 75,
+    "guid": "aa11443ae3f82ec40b622ae95209cf32",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "a6e1580b2e78aba49ab9402176066e63",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Unicron",
+    "Price": 0,
+    "guid": "3f85a0d6042ef5d47b80b78bea3aff5b",
+    "Rarity": 3
+   }
+  ],
+  "7": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "19f24fcc6c23c7940b3a5dceacd1c0bf",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Evening",
+    "Price": 25,
+    "guid": "eaf22d1222107aa498cb7bcbcd3a75fc",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Ghost",
+    "Price": 0,
+    "guid": "31f6e020d9b91134a8ce9483041a3eef",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Red Racer",
+    "Price": 0,
+    "guid": "1c1e610ee5bf4ad4ca3fff3587d3448e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Retro",
+    "Price": 0,
+    "guid": "b02342ea69e0a9e41ba4b410c3177160",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Violeta",
+    "Price": 0,
+    "guid": "560740902e8d2b748b0b795ff54582e2",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Night Line",
+    "Price": 0,
+    "guid": "7b4c04f5cadaf9c4e95f371a6eac699e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "SkyLine",
+    "Price": 0,
+    "guid": "d5fa98adaf4afcc4fb6c7ad657eba70a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Bandage",
+    "Price": 75,
+    "guid": "e810e14865806f647b3da7d634718c30",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Impuls",
+    "Price": 0,
+    "guid": "62012c5d72ee9f14ab157bdecb77176e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "53c8400fb0c251744aeaa689941809f7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "a5cd1df868f6d354da7ca6eb14e1822a",
+    "Rarity": 3
+   }
+  ],
+  "8": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "37174135881c94d47b6d090cbe9a814b",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Banana",
+    "Price": 0,
+    "guid": "57d323a1bb575f1489ed3d807dbc1b0d",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Desert Lord",
+    "Price": 0,
+    "guid": "c00a91800553f0646b55fdd231034492",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Dice",
+    "Price": 0,
+    "guid": "9e17df851c60e994a90250986642e662",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Frosted Edge",
+    "Price": 0,
+    "guid": "6a6e2f7deadd8774fb65f3f602ab6332",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Hyper Least",
+    "Price": 200,
+    "guid": "35d7a9449afaad1418ac27329eb959ca",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Neon",
+    "Price": 0,
+    "guid": "3a63d86983c510440b5d27159e80aa65",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Red Line",
+    "Price": 0,
+    "guid": "f277e0db4f32d09468a966fef95aad4b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Tiger Edge",
+    "Price": 0,
+    "guid": "4888df26f0ce48044ad33a482203f4bb",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Watermelon",
+    "Price": 0,
+    "guid": "05b84bae17ff0d648a7af34bfbfba68f",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Blood Strike",
+    "Price": 0,
+    "guid": "e2e27775a7213364198da887633f47db",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "White Pattern",
+    "Price": 0,
+    "guid": "15f96a790aebb8548b30b037b5c2fee1",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Another Day",
+    "Price": 0,
+    "guid": "742b6ed505d747b40a3bf0abfc3d8735",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Bull",
+    "Price": 0,
+    "guid": "d7b738efc5e243643bc3ecedef8262c2",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Drumcore Redux",
+    "Price": 150,
+    "guid": "8394cc1a0e19fe74ebbb7e647ccbcaf1",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Lava Splash",
+    "Price": 0,
+    "guid": "5830cc0cfc979434e9711356252c094f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 16,
+    "SkinName": "Neon Shadow",
+    "Price": 125,
+    "guid": "1d62517e774000649844c3e531368e09",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 17,
+    "SkinName": "Knight",
+    "Price": 0,
+    "guid": "f9a9c38b5d6abbc4990ec5318f1374fa",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 18,
+    "SkinName": "Radioactive",
+    "Price": 0,
+    "guid": "50261187c4e595d459d1c8cf6b1d383c",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 19,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "f4509b965318d4543b9802a52e511b41",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 20,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "223d3c5cf3a46524dbc9627553783241",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 21,
+    "SkinName": "Super Strenght",
+    "Price": 0,
+    "guid": "86a6de96d0b987041a784e3449ac1699",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 22,
+    "SkinName": "Universe",
+    "Price": 0,
+    "guid": "5a36f7ea74fa92b4a8e9488e2ef042c4",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 23,
+    "SkinName": "Sector",
+    "Price": 0,
+    "guid": "b4c90d25aa02daa4f8e97b01788d7d0d",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 24,
+    "SkinName": "Gold Sky",
+    "Price": 0,
+    "guid": "4abe9d38890ea6542858a74e3882b26a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 25,
+    "SkinName": "Incredible",
+    "Price": 0,
+    "guid": "100ac5e0ef82ca940b9aac8904498d93",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 26,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "ca793a0950a7919478550600219a41e7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 27,
+    "SkinName": "Injection",
+    "Price": 0,
+    "guid": "1416cb336f00ecc4baf569dc10b8f948",
+    "Rarity": 4
+   }
+  ],
+  "9": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "572cf3b0abd43614c99f324399b0199b",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Classic",
+    "Price": 0,
+    "guid": "3ac53e6a47f5f554c8e4f9e0f1516207",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Classic ++",
+    "Price": 75,
+    "guid": "0f2f8fc9e26964b47ba568066adad07e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Greed Speed",
+    "Price": 0,
+    "guid": "7b886e1de9ce60d4796f4048f11c7b11",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Strange",
+    "Price": 0,
+    "guid": "2029c8625e1da4e439175ff1bf9a9479",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Western",
+    "Price": 0,
+    "guid": "27e8db43542a0f24aab23b22c7712d24",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Colorite",
+    "Price": 125,
+    "guid": "7b9362d532a411f4d86e927f844a7ce1",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Splasher",
+    "Price": 0,
+    "guid": "2ded0b3cee474d34184099def16fa3f5",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Booster",
+    "Price": 125,
+    "guid": "8b1f8ba7565801e4bb679c207ae22eb0",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "81981fb325aeef54fa89147d53cb4ebf",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "1ab74dbc87183f44ca7058e54c24e6a8",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Jlister",
+    "Price": 0,
+    "guid": "cbffe60c3cb680a49b8a2dc5f776e9a5",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Zonez-X",
+    "Price": 0,
+    "guid": "3e77795a83e9b444e8fdc117e1738b96",
+    "Rarity": 3
+   }
+  ],
+  "10": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "bea1eecfd6151e146934cb4d433ea0be",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Deserted",
+    "Price": 0,
+    "guid": "5a8bc3693c5681b468d0afd150efb720",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Elementary",
+    "Price": 0,
+    "guid": "70ec7de7faa91d849a90ebaa267b75ef",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Fire",
+    "Price": 75,
+    "guid": "b0ae4abde17a8974e8ce0f666c39a8eb",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Killer",
+    "Price": 25,
+    "guid": "7863e36748b35a14cad0fc194389f8dd",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Vomissa",
+    "Price": 0,
+    "guid": "680643dc306f5d748aeb9a34d551a33d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Grader",
+    "Price": 0,
+    "guid": "16680eb1b9049dd4ba7ceeb840a04a06",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "OW",
+    "Price": 0,
+    "guid": "fd39679ccb46e114fbe07904543b275b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Enerfy Filled",
+    "Price": 125,
+    "guid": "93927e0f5595a5f4681d334fbf80578e",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "28ec7ca0a8d417243b36526d4bc67b2f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Radcool",
+    "Price": 0,
+    "guid": "40910588b0c7dd44faed67d2089e5c07",
+    "Rarity": 3
+   }
+  ],
+  "11": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "c8067f8b7e27b6d4eba5a853699ce78b",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Black Tooth",
+    "Price": 0,
+    "guid": "dc140a9e266843947a7988c305397827",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Bump",
+    "Price": 0,
+    "guid": "1db48e5062819f1408d47e9c05bbdce9",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Red Tooth",
+    "Price": 0,
+    "guid": "33ed75a5041f058449dafbfbf4b881ea",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Wooden",
+    "Price": 25,
+    "guid": "c4086d3e009c753419fa2723b45e3d3c",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "71e2b742e19331549a5acae4054482f3",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Tombvers",
+    "Price": 0,
+    "guid": "7a46cf79a50280844967cd4a0044cff1",
+    "Rarity": 2
+   }
+  ],
+  "12": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "eb92407a07f985b42a9c692a394ea4b2",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Cherry",
+    "Price": 75,
+    "guid": "6e98ef6c1f22b9c4e822136e440e7035",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Dogface",
+    "Price": 0,
+    "guid": "80b695a5e5997f646b7945a4789cc17b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Gradient",
+    "Price": 0,
+    "guid": "eef5212103c31384994091ae4accdc04",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Vomissa",
+    "Price": 200,
+    "guid": "5a32f99e280dd7444aef5d233582c579",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Worker",
+    "Price": 0,
+    "guid": "276f5cf4f0613df4e8270d0a1ad0b0f5",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Bio",
+    "Price": 0,
+    "guid": "23e9aa07769f38c409dfda3766db7a4f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "f0250b11a884bdd4b931efe7f819e98b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "a172ca49ee82bb341b3aa87bd6a2ac05",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "26210254611b5b044a0cc737413b5670",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Defeated",
+    "Price": 0,
+    "guid": "aeecd846eb9b6514b8dcb3cd78663acf",
+    "Rarity": 3
+   }
+  ],
+  "13": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "c71c2b840fc53e24ba6305596a6c8ef6",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Acarus",
+    "Price": 0,
+    "guid": "826faadca3cd6a74da3ade883d9fbafc",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Ampoule",
+    "Price": 25,
+    "guid": "73648f6fb7ee774489234376063894e9",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Green Dawn",
+    "Price": 0,
+    "guid": "a45eee692d4e7174891d146fc4933fee",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Imperator",
+    "Price": 125,
+    "guid": "2c5e5409462bb8b4ea33d477d1c4c726",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Japan Edge",
+    "Price": 0,
+    "guid": "346cc0f491177ee49be266a717792a04",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "S645",
+    "Price": 0,
+    "guid": "bfd15692ee0c9344facf332d23e7fccf",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Tangle",
+    "Price": 0,
+    "guid": "8d15bba6f01cedd41891fdaea84ccd80",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Vortex",
+    "Price": 0,
+    "guid": "e608776d9bc426b42a818d1d1f2f26a0",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Silver",
+    "Price": 0,
+    "guid": "43e79de27e658b54ea01dfa19f2e37cb",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Vertex",
+    "Price": 0,
+    "guid": "17fe51b78067fef4182f68da67be6495",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Indirect",
+    "Price": 75,
+    "guid": "307f33b9369c3e540831e37d269a50e6",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Flare",
+    "Price": 0,
+    "guid": "8769e9f2c50f8064e809480ea97ac721",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "e9792b181780e0f4c8f3a5be7d3f3d18",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Skylake",
+    "Price": 0,
+    "guid": "f8accdad31e0cf343a3309ce4a7c54cf",
+    "Rarity": 3
+   }
+  ],
+  "14": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "8b4e54e14416e864c9f87c4188ca38dd",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Gradline",
+    "Price": 0,
+    "guid": "b7cedfb429e2270459867297713317d9",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Silver",
+    "Price": 0,
+    "guid": "c9596f07cc56b5143b913f87ad6ecc06",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Umissa",
+    "Price": 75,
+    "guid": "562ea9e124bf378469c70d8011324b8e",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Future",
+    "Price": 0,
+    "guid": "83efb26ddc28eca4e989af59da6f4fa3",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Knight",
+    "Price": 0,
+    "guid": "ba4e64f70b877794b89d671bacf3a499",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Lake",
+    "Price": 0,
+    "guid": "577d0dd12f2195f4483adcf3e2c91fe9",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "SkyLine",
+    "Price": 25,
+    "guid": "e65f1668bbabf6845abbd62e2a1626df",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "60d8bdba34b4343439fdf6b1260ccb0c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "3496d2bdd99a516429dcc5209f3de26e",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "49e551af166e91847bf3087c658e8428",
+    "Rarity": 3
+   }
+  ],
+  "15": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "99a87315d3847144dae7f149f28b005e",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Blur",
+    "Price": 0,
+    "guid": "1705468a74d57a340b404a83e0ea0d57",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Hyper Least",
+    "Price": 200,
+    "guid": "fc460a2cad80de143b20afdba70118d9",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Orange",
+    "Price": 0,
+    "guid": "da8c3b0b20850784fb4789b934f5c41d",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Silver",
+    "Price": 0,
+    "guid": "63ba2da184ebb3b4783be19ea98417f9",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Supernova",
+    "Price": 0,
+    "guid": "119343abeebc6da4cbb8045c7e7f668d",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Yellow Side",
+    "Price": 25,
+    "guid": "e38860859ea5b264bb4ec15db4bba43f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Blue Neon",
+    "Price": 0,
+    "guid": "9059673641ed11842bfe94fd169732e4",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Marshmall",
+    "Price": 0,
+    "guid": "2cf49144c2e10a940b31b29fa1b346e8",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Defense",
+    "Price": 0,
+    "guid": "98f080e7e8c26b640b37d5117207c89c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Diablo",
+    "Price": 200,
+    "guid": "313378e49fac6d54495e8130806f2b3f",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "b91d77d90bbbb4d4d8ecb7d63be0a518",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "5f30d10e62edef640a8665b027d439c2",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Gold Sky",
+    "Price": 0,
+    "guid": "e613b3b156985194e9d9eb0f149646f7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Charms",
+    "Price": 0,
+    "guid": "d1e044b125e2f494aae970f9287aad41",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Injection",
+    "Price": 0,
+    "guid": "5714a1a82481dbb44a261aaa8e7e2d8c",
+    "Rarity": 4
+   }
+  ],
+  "16": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "6c73c93c7ece3b241b4f02c397f62f14",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Blue Team",
+    "Price": 0,
+    "guid": "69ab8c2ba0c345149a5c61ec8b003721",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Night",
+    "Price": 0,
+    "guid": "baeea2bc01bf5d54b94f4ecde47e7a77",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Candy",
+    "Price": 75,
+    "guid": "eb290bd6509c0dd4fa191b7f9a5c873c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Five Lines",
+    "Price": 125,
+    "guid": "47dfc01184da63d4294ca8138c38d158",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "e5322d24ce94e0f4eb6c7b3160e0d3bf",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Overtech",
+    "Price": 0,
+    "guid": "2dff6ce6ea4dd6a499e8b24cd9fe1447",
+    "Rarity": 3
+   }
+  ],
+  "17": [],
+  "18": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "626d030dc3c4a9c4f839251c053c1951",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Marshmall",
+    "Price": 25,
+    "guid": "bcd0161881cf44548abd51aca7fc34d5",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Radioactive",
+    "Price": 0,
+    "guid": "517b40626fee3dd499dfbeb4c0938d3b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Arms",
+    "Price": 0,
+    "guid": "ea82b2c636f95ef4a86234331e7f3701",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Whitest",
+    "Price": 0,
+    "guid": "2f012de015272a3428d6ec9188586224",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Hyper Least",
+    "Price": 200,
+    "guid": "5119d83e44736a240b80e7600b8c0e92",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Turbine",
+    "Price": 0,
+    "guid": "6b31d7a2a21b10a4384919bfaf019439",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Booster",
+    "Price": 0,
+    "guid": "51d3b5177f7893545b5b226d371a9957",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "White Tiger",
+    "Price": 125,
+    "guid": "e75838c7f8428a3478f5b86f04e6a9f6",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "High Tech",
+    "Price": 0,
+    "guid": "c87ab8c8cdd33d44b91b90a8a3c1719a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "083c4de04d4ed4547b72af840372b0b1",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Penguin",
+    "Price": 0,
+    "guid": "1326713da2620e1468a6deca4ffd6ce5",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Three Colour",
+    "Price": 0,
+    "guid": "888eb30bba687e64fb7aa2fa5f79ebad",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "ff5d467b6057aaa40ae298832d594b33",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Nightmare",
+    "Price": 100,
+    "guid": "a9ee34f858a465442aa43155490e0aaa",
+    "Rarity": 3
+   }
+  ],
+  "19": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "9e2bfff1ab53824468dbe1e0773598dd",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Marshmall",
+    "Price": 0,
+    "guid": "0d7a7f8eb95559b4db2935498aac1e53",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Red Power",
+    "Price": 0,
+    "guid": "486b72660fa9a794a8ecc88d60a21651",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Roper Death",
+    "Price": 150,
+    "guid": "3ad846212c5489943933c0356ffbd468",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Captain",
+    "Price": 25,
+    "guid": "7e3a59914f1be784e89abc11a4ef1926",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "SkyLine",
+    "Price": 0,
+    "guid": "933609aedc6c65a4799bf88c87764ffc",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Evo",
+    "Price": 125,
+    "guid": "8d766ee60a36ca04ab38c060dba3c687",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "184a9c4d2f98179499523784c97c0df7",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Trooper",
+    "Price": 200,
+    "guid": "3dd47e95ec268b444b03ef31aafe8f42",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Impuls",
+    "Price": 0,
+    "guid": "7dbbdaff71ecf464290e8f7386a92d2e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "ec54cad2d9620114e8b5130185bb93ea",
+    "Rarity": 3
+   }
+  ],
+  "20": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "8a13fc30e06e2dc4d8fc6f6c1630ff4e",
+    "Rarity": 0
+   }
+  ],
+  "21": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "bba3fb1fed5b7124f8053693f7a60e2a",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Fioletta",
+    "Price": 125,
+    "guid": "732124a4e2428884391bc161cc99b945",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Radioactive",
+    "Price": 0,
+    "guid": "af47bcce1e4057246954cb5cd3da9b83",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Rare Water",
+    "Price": 0,
+    "guid": "5b8863a04a4d8014ebf2a930f20cb132",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "3c10b86a426d72f45aa86508c39b3376",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Filled",
+    "Price": 0,
+    "guid": "e619197e27b2aa14d874cdada5bf8bf5",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Shell",
+    "Price": 125,
+    "guid": "667fcbeace2a72a4c8eb075bd91a45e3",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Sirs",
+    "Price": 0,
+    "guid": "2a0ff5381731d0f46a261d845877ab56",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Sundown",
+    "Price": 0,
+    "guid": "2dbae6f66ebd6d343a3d0374bf6277fd",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "5819ad0fe3fab7847abdcf99fd285e28",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "Sunset",
+    "Price": 0,
+    "guid": "fcf8db8fa1ff88243b7a58e743195093",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "d57cb656e9aa24a4cb44f03c7581a46b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Slider",
+    "Price": 0,
+    "guid": "4f6475cf98252034e8bed295907d10ac",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 13,
+    "SkinName": "Mansky",
+    "Price": 0,
+    "guid": "6128f1becdbd6a94f9b62014f6c52799",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 14,
+    "SkinName": "Rose",
+    "Price": 0,
+    "guid": "879e6bd0c8d00354198f3d6004f5bd10",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 15,
+    "SkinName": "Piranha",
+    "Price": 0,
+    "guid": "f7ed58424b9862542936cc962111c136",
+    "Rarity": 3
+   }
+  ],
+  "22": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "81e56d48dac6e064f9b6cdffc055a030",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Echotek",
+    "Price": 125,
+    "guid": "b7816598cebb6034a95dfa7e6b14b796",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Booster",
+    "Price": 0,
+    "guid": "accada886fea3f3439d37239d678cc5b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Hot Steel",
+    "Price": 0,
+    "guid": "7edaae5796f4cd5458704f7e994284c0",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Emerald",
+    "Price": 75,
+    "guid": "5c9fd6185f659ea438e22ace9dab680b",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "ab05a28b2cf12a94a8b76c835ed63d56",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Magma",
+    "Price": 0,
+    "guid": "aeb98f7054b367b4ba158fbadb1b5e68",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Dark Revenge",
+    "Price": 0,
+    "guid": "9a8b80aade430c943a3110f4a98803e2",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Nightmare",
+    "Price": 100,
+    "guid": "ca306c491b979d044ba5be8a8550102b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Orion Path",
+    "Price": 0,
+    "guid": "2f07a4393b82a60428fbc0803721b6c8",
+    "Rarity": 3
+   }
+  ],
+  "23": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "35454af3a8e218c478040fdb96074d92",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "4351ff48885297547b73230600b1f945",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "eee99fdddf3e3a740a573a78e7765bbf",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "811b58750ca7d0c4dbbdd27ff2310e63",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "c33549e3bfbf47d4a8a314c13630f4d0",
+    "Rarity": 3
+   }
+  ],
+  "24": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "82dc21e9adc87ac458662010561e589d",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "e970f13bf9950e547ab0feb6a20c2b27",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "bbb9cbc5c9c85144185909d1a776e0e2",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Host",
+    "Price": 125,
+    "guid": "22b28d6a1ffaa1541af2a25a1c1de0f2",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "5411102c5e65620409610075d2d2758d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Modern",
+    "Price": 0,
+    "guid": "c84b7464f0b8e7145bda54e082d141be",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Baron of Hell",
+    "Price": 0,
+    "guid": "8bd82648a3327e840af268d5aad1cb7a",
+    "Rarity": 4
+   }
+  ],
+  "25": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "eb9c6e09c3574884bb3f9e88af9426c5",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Lime",
+    "Price": 0,
+    "guid": "404b755e4b8eefd42baaa6a00f6bdc94",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "ef3a73cb25dcd4b4a82dfb9f524ca364",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Nightmare",
+    "Price": 100,
+    "guid": "ffa3d9a4ea8d2df48b18a6bd3ee67ba0",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "c1ce3e54c16d72749a7f5ce9a01eeab7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Outnex",
+    "Price": 0,
+    "guid": "7426afadcde09024bb3f2ea824730594",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "FoS",
+    "Price": 0,
+    "guid": "9384fe4cf0eb457498ab6494fab6faa1",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Ultra",
+    "Price": 0,
+    "guid": "415a80d02c12572429068b74690467f0",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Auto",
+    "Price": 0,
+    "guid": "0ba5860dabb4b144296aa1055cb3db53",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Classic",
+    "Price": 0,
+    "guid": "c658fef9a621289458711535778d09ef",
+    "Rarity": 2
+   }
+  ],
+  "26": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "1614106d8be32a149bf17499d3723157",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Ice Titan",
+    "Price": 100,
+    "guid": "ba80f956d970a034ebc02d81771dd46c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "e75ad0655c3776144af27e5e6640513b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Impuls",
+    "Price": 0,
+    "guid": "241e53275fd4c5749bf8700ed4c56fe4",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Lime",
+    "Price": 0,
+    "guid": "4e710c6e381c5ff4887607c64fe7a24a",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Gold Sky",
+    "Price": 0,
+    "guid": "a5ee95e677c57e24dbee04839d952296",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Nightmare",
+    "Price": 100,
+    "guid": "7441728b4581c204db78cb90a4012626",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Outnex",
+    "Price": 0,
+    "guid": "55c97a544b633684db2cf55f66de6ff3",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "NEO",
+    "Price": 0,
+    "guid": "a437af04536c3e24493a2366d2f2666c",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "RIOT",
+    "Price": 0,
+    "guid": "eda5bd1f6f4505346b211a24e004c0cd",
+    "Rarity": 3
+   }
+  ],
+  "27": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "e8008604c21e29b43845bcb1a1e5868a",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Tactic",
+    "Price": 0,
+    "guid": "a34c90a61b0e3e54faa29046a4676bd0",
+    "Rarity": 1
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "516a7f2ec1ba3ec439a168fa6bf9d43e",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Day",
+    "Price": 0,
+    "guid": "b9142ff2a8d639644ad7f87ccd7775e8",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Shark",
+    "Price": 0,
+    "guid": "4e2837dcb8f80d24f83760ef5cbb9bfa",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Accurated Blu",
+    "Price": 0,
+    "guid": "cbf9b25d9011bfd429963efddb8dbade",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Bright Flame",
+    "Price": 0,
+    "guid": "55dd2ee920345b04da0f45da954861ce",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Carribes",
+    "Price": 0,
+    "guid": "e9290bc862b578a48a0af5b7a526363f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Cold Breath",
+    "Price": 0,
+    "guid": "3fe10fe8039333440b9c39cb034c0f3f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Xposted",
+    "Price": 0,
+    "guid": "0cc197b4cb310384d9aec925a6fe0ce9",
+    "Rarity": 3
+   }
+  ],
+  "28": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "c02ebdd8ed351714eab2e2655ce2b71b",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "9b0173591f41fde4da4902636bfbe766",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Battle Heart",
+    "Price": 0,
+    "guid": "03959feb8af3fdf40bab4c96c63d4457",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Sands Of Time",
+    "Price": 150,
+    "guid": "5f80f7fe615cdef4785c67320314c744",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Impuls",
+    "Price": 0,
+    "guid": "eb3a0be5d19d33f48aab4cb3ee4a71ac",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Frozen",
+    "Price": 0,
+    "guid": "c7f3ec7b44848ef4ebbdfbc6b158a7f9",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Nature",
+    "Price": 0,
+    "guid": "cfd5b687632e02542a78d35b8807922a",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Head Hunter",
+    "Price": 0,
+    "guid": "9bda88efa2e6d5a48a840fb4501d62dd",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Jlister",
+    "Price": 0,
+    "guid": "b271bd33b9245a74f9a4f22165f192c8",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "FoS",
+    "Price": 0,
+    "guid": "78d58f4e66181e54695c208338ae8dd4",
+    "Rarity": 3
+   }
+  ],
+  "29": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "c7c495bda70665f4dbb5a42af679cf37",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Frozen",
+    "Price": 0,
+    "guid": "7a164153a8fa4174ab2b9f5c8164d8d1",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Impuls",
+    "Price": 0,
+    "guid": "0b80245a677579e498d68d28cef60a37",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Mandarine",
+    "Price": 0,
+    "guid": "1a2e0da0425c07a4ebe00467c1aa1d4c",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Outnex",
+    "Price": 0,
+    "guid": "ea8d5d901c131e34abbe945d6dc1319f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "55fc59a9d9f3793409b22b716b851dcb",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Jlister",
+    "Price": 0,
+    "guid": "dcbf294edf292be42baee1301188e8ca",
+    "Rarity": 3
+   }
+  ],
+  "30": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "ad897f0d18226bd45bf369b4d91fd358",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "RIM",
+    "Price": 0,
+    "guid": "04035615ed3fdad46ac4ef0ac2d3549f",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Water Flame",
+    "Price": 0,
+    "guid": "54fecb89863c4374ea7c6bb627d6939e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Bloody Pink",
+    "Price": 0,
+    "guid": "740693776868d9948b8e63d22e4f5efd",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Camouflage",
+    "Price": 0,
+    "guid": "b28378ecdd2124c4c9a4c28e0368a042",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Vinci",
+    "Price": 0,
+    "guid": "af9db176ce1c93f47a55086f4083dbf4",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Injection",
+    "Price": 0,
+    "guid": "30096eaaa79c7104b88c2139e4d221d3",
+    "Rarity": 4
+   }
+  ],
+  "31": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "4d2b16aedde7055468b678b45c767df3",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Galactic",
+    "Price": 0,
+    "guid": "2710642076c05874c868fee016f0652b",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Fade",
+    "Price": 0,
+    "guid": "506dd871162c48c41a4c8656d152f2f5",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Dora",
+    "Price": 0,
+    "guid": "9db9eb81494fda943a3895d2c12fc4a0",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Ultraviolet",
+    "Price": 0,
+    "guid": "7960849840aa74b4db4e9152514e99c7",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Laminate",
+    "Price": 0,
+    "guid": "a555c27045e9106478df681c7dbc915e",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Daddy",
+    "Price": 0,
+    "guid": "4c98f7e087db0d740a2ff853e7a5b3b8",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Overflow",
+    "Price": 0,
+    "guid": "8fda5ae3e1066784da41d7acb5be7854",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "59f084236b033e341b9f8f5b7c470409",
+    "Rarity": 3
+   }
+  ],
+  "32": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "0687b4feff38fab4f895bd2a01ffbb43",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Galactic",
+    "Price": 0,
+    "guid": "9b7faaaf8a33af4479e271ea8a3a2525",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Fade",
+    "Price": 0,
+    "guid": "0decb6f798790764ba44513159f36cfd",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Night",
+    "Price": 0,
+    "guid": "3f99f80db1bd3164d9a53c31551eb169",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Ultraviolet",
+    "Price": 0,
+    "guid": "c59b018850dfb7643a1d593b1b151e0a",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Daddy",
+    "Price": 0,
+    "guid": "9c3529dfaaa6e3f4b9d29dda3606e6da",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Safari",
+    "Price": 0,
+    "guid": "db55163f4d647c24eb4e8ad0a0d11e60",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "9818663f2f30f3c49b425474b8753544",
+    "Rarity": 3
+   }
+  ],
+  "33": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "cb14619523cb7b543bba6d2a2a910b71",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Fade",
+    "Price": 0,
+    "guid": "f77032e75a4cdf446aabc3364154f95b",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Night",
+    "Price": 0,
+    "guid": "60346d5d315eca0488b71cac6d96b174",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Ultraviolet",
+    "Price": 0,
+    "guid": "be77afcd35b8dfd428cdf5822122fb1a",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Dora",
+    "Price": 0,
+    "guid": "18f8f76fe11524f40a0034ca4886060b",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Daddy",
+    "Price": 0,
+    "guid": "11df42899cdf20b45b761f7afd5f777b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "3b6fed527defd2e41afb1a2c6995afb7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Safari",
+    "Price": 0,
+    "guid": "be324d5e3473d5547b2f854195efcdae",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Thrash",
+    "Price": 0,
+    "guid": "a71a6be4e10eed945a05a18b814ab1c4",
+    "Rarity": 3
+   }
+  ],
+  "34": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "3b6e9f23a1905304da9290d08ccd75a2",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Fade",
+    "Price": 0,
+    "guid": "863531567a52a934fb74df46701ec6b6",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Night",
+    "Price": 0,
+    "guid": "2a16e580be1b70b43851eca3234e000c",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Galactic",
+    "Price": 0,
+    "guid": "ff016b4148df4e64fad2af112702c66d",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Ultraviolet",
+    "Price": 0,
+    "guid": "7e9787acdbabcb14eb2503c0bba07c34",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Daddy",
+    "Price": 0,
+    "guid": "c79c1e8e562a5094cb7f981bbbcf6337",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Safari",
+    "Price": 0,
+    "guid": "83a91d8ba77ed45409f9c5e049eef8d3",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Neon Beam",
+    "Price": 0,
+    "guid": "72173ebbaa2fbfa4cb4da8f48439702f",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "5fae4e0b757735342b72a950b10b7700",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Gazelle",
+    "Price": 0,
+    "guid": "66b348f0599325e4d9de0e68cca7dc77",
+    "Rarity": 3
+   }
+  ],
+  "35": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "2030a5a169671ea468d2305260936384",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Fade",
+    "Price": 0,
+    "guid": "798717ab2b9c39a4886838a4a2723b00",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Ultraviolet",
+    "Price": 0,
+    "guid": "6f55deab0e306174a9de67344b41d3dc",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Night",
+    "Price": 0,
+    "guid": "69a849270388c57408e10973b35030af",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Galactic",
+    "Price": 0,
+    "guid": "4c62408f7fe3d644cbe6ffb7603fd7a4",
+    "Rarity": 4
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Daddy",
+    "Price": 0,
+    "guid": "fe4faf712d2bd8d408e92eab0189dadb",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Revenge",
+    "Price": 0,
+    "guid": "c4ab00d8dc6f1924da2adae72d1c4595",
+    "Rarity": 3
+   }
+  ],
+  "36": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "f5b751ba3dda4e848bb2dae608c67af8",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Makarov",
+    "Price": 0,
+    "guid": "ce855124afde5e14c85c24bbb9d27488",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Skylake",
+    "Price": 0,
+    "guid": "e19b320bce3452942b62ac8139887635",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "1337",
+    "Price": 0,
+    "guid": "a81ab420ab500354087ec5f1d9adb34a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Redmag",
+    "Price": 0,
+    "guid": "7a4480a808bf3984596dda1fd4494972",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Mansky",
+    "Price": 0,
+    "guid": "afdb56eab5a280f4ba8f8c3c85845bb3",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Synthoid",
+    "Price": 0,
+    "guid": "83a923d83ad698641970ae611adfa184",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "Imperial Dragon",
+    "Price": 0,
+    "guid": "b7e45435a83ec8f43b46f14fe318ed2e",
+    "Rarity": 3
+   }
+  ],
+  "37": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "57c3a7689d7d2dc44ba30b7eec86330d",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Lethal",
+    "Price": 0,
+    "guid": "82f93ec10e44410458e416c587983e7a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 2,
+    "SkinName": "Diamond",
+    "Price": 0,
+    "guid": "ebc1c31e62420564fb6e3db69b1cc4cb",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 3,
+    "SkinName": "Outnex",
+    "Price": 0,
+    "guid": "5e4c93aa198e8634a85619d8abe0bd9b",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 4,
+    "SkinName": "Nano",
+    "Price": 0,
+    "guid": "f42d552a701095940b1c3882b18138aa",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 5,
+    "SkinName": "Marshmall",
+    "Price": 0,
+    "guid": "d17a97167f1554a4588d00e53e382f61",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 6,
+    "SkinName": "Mansky",
+    "Price": 0,
+    "guid": "9e1a1ddf6eeb01646b294bea9e6796e7",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 7,
+    "SkinName": "XTREME",
+    "Price": 0,
+    "guid": "f140eee5a51279f43a077f6526c34559",
+    "Rarity": 2
+   },
+   {
+    "SkinID": 8,
+    "SkinName": "MATRIX 1",
+    "Price": 0,
+    "guid": "f69f2344ce8491244bd6de9365421d92",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 9,
+    "SkinName": "Volter",
+    "Price": 0,
+    "guid": "4c738f3398950c543a1d3ca9bb990de2",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 10,
+    "SkinName": "RealyX",
+    "Price": 0,
+    "guid": "ff960ad8b4a083943b0b3e9905e3c880",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 11,
+    "SkinName": "Macro",
+    "Price": 100,
+    "guid": "7b20e5593bbbc3a4283b9e318cfcfc1a",
+    "Rarity": 3
+   },
+   {
+    "SkinID": 12,
+    "SkinName": "Overload",
+    "Price": 0,
+    "guid": "3d7d6beb624e65148a1e77392cad0954",
+    "Rarity": 3
+   }
+  ],
+  "38": [
+   {
+    "SkinID": 0,
+    "SkinName": "Standard",
+    "Price": 0,
+    "guid": "f810b62b175b66f48ba1232f1a123fbf",
+    "Rarity": 0
+   },
+   {
+    "SkinID": 1,
+    "SkinName": "Volter",
+    "Price": 0,
+    "guid": "1415b35c14418a84b8b2658ae1cb6565",
+    "Rarity": 3
+   }
+  ]
+ },
+ "player_skins": [
+  {
+   "ID": 0,
+   "Name": "Default",
+   "PriceType": 0,
+   "Price": 0
+  },
+  {
+   "ID": 1,
+   "Name": "Skin2",
+   "PriceType": 0,
+   "Price": 2000
+  },
+  {
+   "ID": 2,
+   "Name": "Skin3",
+   "PriceType": 0,
+   "Price": 5000
+  },
+  {
+   "ID": 3,
+   "Name": "Skin4",
+   "PriceType": 0,
+   "Price": 7000
+  },
+  {
+   "ID": 4,
+   "Name": "Skin5",
+   "PriceType": 1,
+   "Price": 200
+  },
+  {
+   "ID": 5,
+   "Name": "Skin6",
+   "PriceType": 0,
+   "Price": 10000
+  },
+  {
+   "ID": 6,
+   "Name": "Skin7",
+   "PriceType": 0,
+   "Price": 10000
+  },
+  {
+   "ID": 7,
+   "Name": "Skin8",
+   "PriceType": 0,
+   "Price": 10000
+  }
+ ],
+ "note": "player skin sprite x-8 (#bs hoodie) exists but has no shop entry -> dev-only skin"
+}
