@@ -1,4 +1,4 @@
-# Block Strike 608 — восстановление Unity-проекта
+# Block Strike 3.7.0 — восстановление Unity-проекта
 
 ## Главное: проект готов в `client/`
 
@@ -34,7 +34,7 @@
 | Путь | Содержимое |
 |---|---|
 | `client/` | готовый Unity-проект (открывать в 5.6.7f1) |
-| `original/apk/` | исходный рабочий APK 6.0.8 |
+| `original/apk/` | исходный рабочий APK 3.7.0 |
 | `tools/` | весь pipeline: экспорт, декрипт имён, шейдеры, геометрия, установщики |
 | `docs/` | отчёты по восстановлению (см. `export-status.md`, `shader-lightmap-recovery.md`, `scene-names.md`, `unity56-fixes.md`, `map-geometry-repair.md`) |
 
