@@ -115,7 +115,7 @@ public static class BlockStrikeLightmapRecovery
     {
         string directory = Path.GetDirectoryName(scenePath);
         string sceneFolder = Path.GetFileNameWithoutExtension(scenePath);
-        return Path.Combine(directory, sceneFolder, "LightmapFar-0.png").Replace('\\', '/');
+        return Path.Combine(Path.Combine(directory, sceneFolder), "LightmapFar-0.png").Replace('\\', '/');
     }
 
     static Manifest LoadManifest(string path)
@@ -295,9 +295,9 @@ public static class BlockStrikeLightmapRecovery
             entry.texturePath = info.texturePath;
             entry.manifestFile = info.manifestFile;
             entry.renderers = info.lightmappedRecords.Count;
-            entry.backupScene = Path.Combine(backupRoot, "Scenes", safe + ".unity");
-            entry.backupSceneMeta = Path.Combine(backupRoot, "Scenes", safe + ".unity.meta");
-            entry.backupTextureMeta = Path.Combine(backupRoot, "TextureMetas", safe + ".png.meta");
+            entry.backupScene = Path.Combine(Path.Combine(backupRoot, "Scenes"), safe + ".unity");
+            entry.backupSceneMeta = Path.Combine(Path.Combine(backupRoot, "Scenes"), safe + ".unity.meta");
+            entry.backupTextureMeta = Path.Combine(Path.Combine(backupRoot, "TextureMetas"), safe + ".png.meta");
 
             Directory.CreateDirectory(Path.GetDirectoryName(entry.backupScene));
             Directory.CreateDirectory(Path.GetDirectoryName(entry.backupTextureMeta));
