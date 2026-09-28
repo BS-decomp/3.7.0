@@ -1,5 +1,9 @@
 # First Unity 5.6 compiler fixes
 
+> NOTE (2026-09-28): all 7 patches below are ALREADY APPLIED inside `client/`.
+> This document now only documents the standalone installer for other project copies.
+
+
 Apply with Unity closed, on the migrated working copy, not by overwriting it
 with the original ZIP:
 

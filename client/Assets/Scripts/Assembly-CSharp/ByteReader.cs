@@ -68,18 +68,19 @@ public class ByteReader
 		int num2 = mOffset;
 		if (num2 < num)
 		{
-			int num3;
-			do
+			while (true)
 			{
-				if (num2 < num)
+				if (num2 >= num)
 				{
-					num3 = mBuffer[num2++];
-					continue;
+					num2++;
+					break;
 				}
-				num2++;
-				break;
+				int num3 = mBuffer[num2++];
+				if (num3 == 10 || num3 == 13)
+				{
+					break;
+				}
 			}
-			while (num3 != 10 && num3 != 13);
 			string result = ReadLine(mBuffer, mOffset, num2 - mOffset - 1);
 			mOffset = num2;
 			return result;

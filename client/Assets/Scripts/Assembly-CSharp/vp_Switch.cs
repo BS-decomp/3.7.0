@@ -58,17 +58,17 @@ public class vp_Switch : vp_Interactable
 		}
 		using (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())
 		{
-			string current;
-			do
+			while (true)
 			{
-				if (enumerator.MoveNext())
+				if (!enumerator.MoveNext())
 				{
-					current = enumerator.Current;
-					continue;
+					return;
 				}
-				return;
+				if (col.gameObject.tag == enumerator.Current)
+				{
+					break;
+				}
 			}
-			while (!(col.gameObject.tag == current));
 		}
 		if (m_Player == null)
 		{

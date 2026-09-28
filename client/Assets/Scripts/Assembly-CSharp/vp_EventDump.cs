@@ -96,14 +96,14 @@ public class vp_EventDump
 			{
 				switch (text2)
 				{
-				default:
-				{
-					int num;
-					text = ((num != 1) ? (text + "Unsupported listener: ") : (text + "Set"));
-					break;
-				}
 				case "Get":
 					text += "Get";
+					break;
+				case "Set":
+					text += "Set";
+					break;
+				default:
+					text += "Unsupported listener: ";
 					break;
 				}
 			}

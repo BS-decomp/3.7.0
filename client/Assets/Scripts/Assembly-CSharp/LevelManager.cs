@@ -59,14 +59,12 @@ public class LevelManager
 	public static string GetSceneName()
 	{
 		string loadedLevelName = Application.loadedLevelName;
-		loadedLevelName = loadedLevelName.Replace("#", "/");
-		return Utils.Decrypt(loadedLevelName);
+		return loadedLevelName; // Recovered readable scene names.
 	}
 
 	private static string GetEncryptSceneName(string name)
 	{
-		string text = Utils.Encrypt(name);
-		return text.Replace("/", "#");
+		return name; // Recovered readable scene names.
 	}
 
 	public static void LoadLevel(string name)

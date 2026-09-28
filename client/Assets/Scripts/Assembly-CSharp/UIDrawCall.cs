@@ -698,7 +698,10 @@ public class UIDrawCall : MonoBehaviour
 			return uIDrawCall;
 		}
 		GameObject gameObject = new GameObject(name);
-		UnityEngine.Object.DontDestroyOnLoad(gameObject);
+		if (Application.isPlaying)
+		{
+			UnityEngine.Object.DontDestroyOnLoad(gameObject);
+		}
 		UIDrawCall uIDrawCall2 = gameObject.AddComponent<UIDrawCall>();
 		mActiveList.Add(uIDrawCall2);
 		return uIDrawCall2;

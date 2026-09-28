@@ -75,17 +75,17 @@ public abstract class vp_Interactable : MonoBehaviour
 		}
 		using (List<string>.Enumerator enumerator = RecipientTags.GetEnumerator())
 		{
-			string current;
-			do
+			while (true)
 			{
-				if (enumerator.MoveNext())
+				if (!enumerator.MoveNext())
 				{
-					current = enumerator.Current;
-					continue;
+					return;
 				}
-				return;
+				if (col.gameObject.tag == enumerator.Current)
+				{
+					break;
+				}
 			}
-			while (!(col.gameObject.tag == current));
 		}
 		m_Player = col.gameObject.GetComponent<vp_FPPlayerEventHandler>();
 		if (!(m_Player == null))

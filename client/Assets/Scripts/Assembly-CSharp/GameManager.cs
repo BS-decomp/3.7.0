@@ -431,9 +431,9 @@ public class GameManager : Photon.MonoBehaviour
 		PhotonNetwork.LoadLevel(LevelManager.GetNextScene((GameMode)mode));
 	}
 
-	public unsafe static void StartAutoBalance()
+	public static void StartAutoBalance()
 	{
-		vp_Timer.In(30f, new vp_Timer.Callback(null, (IntPtr)(void*)(ulong)(UIntPtr/*delegate*<bool, void>*/)(&BalanceTeam)), -1, 30f);
+		vp_Timer.In(30f, delegate { BalanceTeam(false); }, -1, 30f);
 	}
 
 	public static void BalanceTeam(bool updateTeam = false)
