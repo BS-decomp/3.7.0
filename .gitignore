@@ -14,9 +14,16 @@ client/UserSettings/
 client/RecoveryBackups/
 client/*.csproj
 client/*.sln
-client/*.suo
 client/*.userprefs
 client/*.user
+
+# IDE state (Visual Studio / Rider). These also appear nested, e.g.
+# client/.vs/client/v15/.suo, which a bare `client/*.suo` rule does not match.
+.vs/
+.idea/
+*.suo
+*.user
+*.userprefs
 
 # OS junk
 .DS_Store

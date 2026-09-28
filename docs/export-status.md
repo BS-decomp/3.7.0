@@ -32,8 +32,24 @@ with the universal recovery tool. The only runtime error seen was the expected
 
 Known honest limits: geometry repair is already applied in the committed
 `client/`; no 55-scene repair remains. Online services (GPGS, PlayFab, ads,
-billing) cannot be verified in the editor by definition. An audit found that the
-54 map lightmap PNGs are not bound to the committed scenes; a reversible editor
-binder is now included but has not yet been run or visually checked. Per-map
-comparison against the live APK remains an optional last-mile check. Android
-native/Java plugins are not reconstructed in `client/`.
+billing) cannot be verified in the editor by definition. Per-map comparison
+against the live APK remains an optional last-mile check. Android native/Java
+plugins are not reconstructed in `client/`.
+
+## 2026-09-28 — lightmaps bound and visually checked
+
+An audit had found that the 54 map lightmap PNGs were not bound to the committed
+scenes. That is now resolved: the reversible editor binder was run against
+`client/`, so all 54 map scenes carry a `BS608_LegacyLightmaps` object with
+`LegacyLightmapBinder`, and each map's `LightmapFar-0.png` is imported as a
+`Lightmap` texture. PNG bytes and asset GUIDs were not modified.
+
+Checked in Unity 5.6.7f1: the project compiles, the scenes open, and the maps
+were inspected by flying through them in the editor — baked shadowing renders
+again. This was a visual pass, not an automated test. Play mode under real match
+conditions and an Android device build are still unverified, and platform
+lightmap decoding can differ from editor output.
+
+Caveat on undo: binder backups are written to `RecoveryBackups/`, which is
+gitignored. The in-editor Revert command therefore only works on the machine
+where Bind was run; from a clean clone, revert via `git`.

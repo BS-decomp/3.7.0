@@ -16,7 +16,7 @@ This is a binding/import problem, not a OnePlus 13 performance problem. A lightm
 
 ## Recovery tool
 
-The recovery is deliberately opt-in. This commit adds the runtime component and editor command, but does **not** change the 56 scene files. The editor operation:
+The recovery is opt-in and reversible. The tooling was added first, and the Bind operation has since been **run against this repository**: all 54 map scenes are now bound (see "Current state" below). `Logo` and `AwakeScene` contain no lightmapped renderers and are skipped. The editor operation:
 
 1. Preflights all 56 manifests and all 54 target scenes before writing anything. It resolves renderers by their serialized local IDs, refuses name-based guesses, verifies each serialized `MeshFilter` GUID points to its expected `RecoveredGeometry/MapGeometry-*/<Map>/Renderer-<id>.asset`, verifies each texture, and checks the expected 54 scenes / 3,196 renderer records. This deliberately checks the scene's persistent reference, not only `MeshFilter.sharedMesh` after scripts run.
 2. Backs up each target `.unity`, scene `.meta`, and lightmap `.meta` under `RecoveryBackups/LightmapBinding/<token>/` (outside `Assets`, gitignored).
@@ -41,6 +41,22 @@ To install into another recovered export, run `Install-AllRecovery.ps1`; it inst
 
 To undo the last successful operation, run `Tools > Block Strike Recovery > Revert last legacy lightmap binding`. Revert restores scene files and texture-importer metadata from the backup. It discards later edits to those scenes/import settings; backup files are retained.
 
-## Verification limits
+## Current state
 
-The current repository scenes have not been bound by this operation. The code has been statically checked and the on-disk manifests, scene local IDs, geometry mesh references, texture paths and PNG assets were checked offline. Unity 5.6.7f1 is not available in this environment, so compilation inside Unity, rendered output, Play mode and an Android build remain unverified. The first real visual check should be one map (Battleforce or Bust) in Scene/Game view; use Revert if the result is darker/brighter or otherwise unexpected. The importer and scene changes are backed up specifically because platform-specific lightmap decoding cannot be visually confirmed here.
+The Bind operation has been applied to this repository. Concretely:
+
+- all 54 map scenes contain a `BS608_LegacyLightmaps` object carrying `LegacyLightmapBinder`;
+- each map's `LightmapFar-0.png` importer is set to Unity's `Lightmap` texture type (`textureType: 6`), with the importer metadata upgraded to the Unity 5.6 serialization format;
+- the PNG bytes and all asset GUIDs are unchanged.
+
+## Verification status
+
+Verified in Unity 5.6.7f1: the project compiles, the scenes open, and lighting renders. The maps were inspected in the editor by flying through them, and baked shadowing is visibly present again. This was a visual pass over the scenes, not an automated test.
+
+Still unverified: Play mode under real match conditions, an Android device build, and per-map pixel comparison against the live APK. Platform-specific lightmap decoding can differ from editor output, so a device check is still worthwhile before shipping.
+
+## Reverting
+
+`Tools > Block Strike Recovery > Revert last legacy lightmap binding` restores scenes and texture-importer metadata from `RecoveryBackups/LightmapBinding/<token>/`.
+
+**That backup directory is gitignored and is not part of the repository.** Revert therefore only works on the machine where Bind was originally run. From a clean clone there is no backup to restore from — undo the binding with `git` instead (the commit that applied it is self-contained), or re-run Bind on a fresh export to regenerate backups.

@@ -91,8 +91,9 @@ refuses to proceed until geometry recovery is applied. The tool backs up scenes
 and texture `.meta` files outside `Assets`; no bake is run.
 
 See [`lightmap-binding.md`](lightmap-binding.md) for audit details, menu
-commands and verification limits. The binding has not yet been applied to the
-committed scenes, and its rendered output has not been tested in Unity 5.6.7f1.
+commands and verification status. The binding has since been applied to the
+committed scenes (all 54 maps) and checked visually in Unity 5.6.7f1; a device
+build and Play mode under real match conditions remain unverified.
 
 The path normalizer still performs only the GUID-preserving folder rename:
 
