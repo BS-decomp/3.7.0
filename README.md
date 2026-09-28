@@ -1,54 +1,32 @@
-# Block Strike 3.7.0 — восстановление Unity-проекта
+# Block Strike 3.7.0
 
-## Проект находится в `client/`
+An unofficial reconstruction of the **Block Strike 3.7.0** Unity project from the Android release. The goal is to make this version's scenes, scripts, and assets accessible for study, preservation, and further repair. This repository is a working Unity project and a set of recovery tools, **not an official game release**.
 
-`client/` — восстановленный Unity-проект Block Strike 3.7.0. Открывать в Unity **5.6.7f1** (оригинальный проект был 4.7.2f1; лицензия на целевой редактор подтверждена 2026-09-28).
+## Open the project
 
-В закоммиченном проекте уже сделано:
+1. Clone or download this repository.
+2. Open the **`client/`** directory as a project in **Unity 5.6.7f1**. The original game used Unity 4.7.2f1; the recovered project is adapted for 5.6.7f1. Opening it in a newer editor may upgrade or rewrite project files.
+3. Let Unity import the assets, then browse the scenes under `client/Assets/Levels/`. The Menu scene is at `client/Assets/Levels/Menu.unity`.
 
-- **35 шейдеров** восстановлены (плейсхолдеров `DummyShaderTextExporter` — ноль): NGUI UI, Mobile/VertexLit игровые, MADFINGER god-rays, ProBuilder, эра-совместимые built-in (см. `tools/unity-editor/ShaderRecovery`, источники в `tools/shader-extract`).
-- **Все 56 сцен** переименованы в читаемые имена (`Assets/Levels/.../*.unity`), пути в `ProjectSettings/EditorBuildSettings.asset` обновлены, `LevelManager.cs` больше не шифрует/дешифрует имена.
-- **Геометрический ремонт уже применён** к 54 сценам с картами: 3 891 восстановленный меш используется сценами, ссылки на старые `Combined Mesh` убраны. Инструмент и 56 манифестов остаются в проекте для аудита/повторного запуска.
-- **54 папки лайтмапов** и GUID-файлы сохранены/нормализованы.
-- **7 компиляторных патчей Unity 5.6** применены к скриптам (`tools/unity56-fixes.json`).
-- **Лайтмапы привязаны к сценам.** Unity 5.6 `LightingData.asset` не восстанавливался — вместо него во все 54 карты добавлен рантайм-биндер `BS608_LegacyLightmaps` (`LegacyLightmapBinder`), а `LightmapFar-0.png` каждой карты помечен как текстура типа `Lightmap`. Проверено в Unity 5.6.7f1: свет и запечённые тени на картах отрисовываются (см. `docs/lightmap-binding.md`).
+The recovered project in `client/` already contains the available repairs. You do not need to run the installation scripts just to open it.
 
-## Лайтмапы: состояние и повторный прогон
+## Repository layout
 
-В `client/` привязка **уже применена**, запускать ничего не нужно. Команды нужны только для аудита или для установки в другую копию экспорта:
+| Path | Contents |
+| --- | --- |
+| `client/` | Recovered Unity project: scenes, scripts, assets, and editor tooling. |
+| `original/apk/` | Original Android APK kept as reference material; it is not a build of this project. |
+| `tools/` | Scripts and Unity editor tools for reproducing parts of the recovery process. |
+| `docs/` | Technical notes on the export, scene names, geometry, shaders, lightmaps, and compatibility. |
 
-1. `Tools → Block Strike Recovery → Validate ALL legacy lightmaps` — проверка без изменений файлов.
-2. `Tools → Block Strike Recovery → Bind ALL legacy lightmaps` — после подтверждения резервирует сцены и `.meta`, добавляет рантайм-биндер в 54 карты, помечает их PNG как Lightmap и исправляет `MeshAtlas`-ссылки, которые подменяют восстановленные меши временными клонами.
+If you are working from another export rather than the included `client/` project, see the recovery notes in [`docs/`](docs/) and the installer at [`tools/Install-AllRecovery.ps1`](tools/Install-AllRecovery.ps1).
 
-Откат: `Tools → Block Strike Recovery → Revert last legacy lightmap binding`. Важно: бэкапы лежат в `RecoveryBackups/` — эта папка в `.gitignore` и в репозиторий не попадает, поэтому Revert работает только на той машине, где выполнялся Bind. Из чистого клона откатывать нужно через `git`.
+## Bugs and contributions
 
-Проверено в Unity 5.6.7f1: проект компилируется, сцены открываются, свет и запечённые тени на картах видны при облёте. Не проверялось: Play mode в реальном матче, сборка под Android и попиксельное сравнение с живым APK — подробности в `docs/lightmap-binding.md`. После последней офлайн-проверки ссылки на меши в четырёх сценах были исправлены; **эти точечные правки ещё не перепроверены в Unity**.
+This is a reconstruction, so bugs, missing functionality, and differences from the original game are possible. In particular, opening a scene in the editor is not a guarantee that an Android build or online gameplay will work: some platform integrations and services depend on components outside the recovered Unity project. We plan to investigate reported problems and fix what we can over time.
 
-Офлайн-проверка из чистого клона:
+If you find an issue, please include the scene or feature involved, steps to reproduce it, your Unity version, and any relevant logs or screenshots. Contributions and fixes are welcome. The technical background and current limitations are documented in [`docs/`](docs/).
 
-```bash
-python -m unittest discover -s tools -p 'test_*.py'
-```
+## Rights
 
-Она проверяет ссылки на восстановленные меши у всех 3 891 статических рендереров и 24 компонента `MeshAtlas`. Девять исторических тестов, которым нужен отсутствующий в git архив `exports/BlockStrike-608-Unity-4.7.2f1.zip`, будут помечены как `skipped`; это не заменяет прогон в Unity/на Android.
-
-## Установка в другую копию экспорта
-
-Один скрипт ставит Unity 5.6 фиксы, имена сцен, нормализацию путей лайтмапов, шейдеры, геометрический инструмент и биндер:
-
-```powershell
-.\tools\Install-AllRecovery.ps1 -ProjectPath "ПУТЬ\К\UnityProject"
-```
-
-В свежей копии экспорта сначала запусти `Tools → Block Strike Recovery → Repair ALL scene geometry`, затем проверь и привяжи лайтмапы командами выше. В `client/` геометрия уже восстановлена.
-
-## Структура репозитория
-
-| Путь | Содержимое |
-|---|---|
-| `client/` | Unity-проект для 5.6.7f1 |
-| `original/apk/` | исходный рабочий APK 3.7.0 |
-| `tools/` | pipeline: экспорт, декрипт имён, шейдеры, геометрия, лайтмапы и установщики |
-| `docs/` | отчёты по восстановлению (`export-status.md`, `shader-lightmap-recovery.md`, `lightmap-binding.md`, `scene-names.md`, `unity56-fixes.md`, `map-geometry-repair.md`) |
-
-Бэкапы установщиков и инструментов лежат в `RecoveryBackups/` рядом с `Assets` (вне Unity-импорта и вне git).
+Block Strike and its original content belong to their respective rights holders. The presence of a [`LICENSE`](LICENSE) file does not by itself grant permission to redistribute the original game, APK, or third-party assets; please respect their applicable rights when using this repository.
