@@ -18,10 +18,11 @@ This is a binding/import problem, not a OnePlus 13 performance problem. A lightm
 
 The recovery is deliberately opt-in. This commit adds the runtime component and editor command, but does **not** change the 56 scene files. The editor operation:
 
-1. Preflights all 56 manifests and all 54 target scenes before writing anything. It resolves renderers by their serialized local IDs, refuses name-based guesses, checks that each renderer references its expected `RecoveredGeometry/MapGeometry-*/<Map>/Renderer-<id>.asset`, verifies each texture, and checks the expected 54 scenes / 3,196 renderer records.
+1. Preflights all 56 manifests and all 54 target scenes before writing anything. It resolves renderers by their serialized local IDs, refuses name-based guesses, verifies each serialized `MeshFilter` GUID points to its expected `RecoveredGeometry/MapGeometry-*/<Map>/Renderer-<id>.asset`, verifies each texture, and checks the expected 54 scenes / 3,196 renderer records. This deliberately checks the scene's persistent reference, not only `MeshFilter.sharedMesh` after scripts run.
 2. Backs up each target `.unity`, scene `.meta`, and lightmap `.meta` under `RecoveryBackups/LightmapBinding/<token>/` (outside `Assets`, gitignored).
 3. Sets each `LightmapFar-0.png` importer to Unity's `Lightmap` type. The original PNG bytes and GUIDs are not changed; `.meta` backups make this reversible.
 4. Adds one `BS608_LegacyLightmaps` object with `LegacyLightmapBinder` to each target scene and saves it. The component binds the scene's texture to `LightmapSettings.lightmaps`, sets `LightmapsMode.NonDirectional`, and sets the original lightmapped renderers to index 0.
+5. If a lightmapped renderer has `MeshAtlas`, the explicit Bind operation retargets `MeshAtlas.originalMesh` to that renderer's recovered mesh before rebuilding its temporary atlas clone. This preserves the repaired geometry and UV2 when the `[ExecuteInEditMode]` script runs. The scene backup includes this change; `Validate` only reports it and makes no scene changes.
 
 **Run geometry repair first.** `BlockStrikeGeometryRecovery` splits the Unity 4 static batches, extracts each object's atlas portion, keeps the baked atlas coordinates in UV2, and sets `lightmapScaleOffset` to identity. Applying the original manifest scale/offset a second time would be wrong. The lightmap binder is intentionally strict and stops if those recovered meshes are absent.
 
@@ -33,8 +34,8 @@ Unity 5.6.7f1 only; close Unity before installing the scripts into a project.
 
 For this repository, the binder scripts are already in `client/`. Open the project, allow compilation, then run:
 
-1. `Tools > Block Strike Recovery > Validate ALL legacy lightmaps` — read-only preflight; it verifies references and geometry without changing scenes or importer settings.
-2. `Tools > Block Strike Recovery > Bind ALL legacy lightmaps` — review the confirmation, then apply.
+1. `Tools > Block Strike Recovery > Validate ALL legacy lightmaps` — read-only preflight; it verifies serialized mesh references and textures without changing scenes or importer settings. If it finds a `MeshAtlas` runtime clone, it explains that the explicit Bind command will retarget its source mesh.
+2. `Tools > Block Strike Recovery > Bind ALL legacy lightmaps` — review the confirmation (including any `MeshAtlas` source updates), then apply. The operation remains opt-in and reversible.
 
 To install into another recovered export, run `Install-AllRecovery.ps1`; it installs the geometry manifests/tool and the lightmap binder. After opening Unity, repair geometry first, then validate and bind lightmaps.
 

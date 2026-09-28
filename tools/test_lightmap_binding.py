@@ -25,6 +25,13 @@ def guid_from_meta(path):
     return match.group(1)
 
 
+def guid_paths_for_test(guid, client_root):
+    for meta in client_root.glob("Assets/**/*.meta"):
+        if guid_from_meta(meta) == guid:
+            return meta.with_suffix("").as_posix()
+    return ""
+
+
 class LightmapBindingTests(unittest.TestCase):
     def test_tool_and_client_sources_and_metas_match(self):
         self.assertEqual(BINDER_SOURCE.read_bytes(), BINDER_CLIENT.read_bytes())
@@ -100,6 +107,52 @@ class LightmapBindingTests(unittest.TestCase):
 
         self.assertEqual(lightmapped_scenes, 54)
         self.assertEqual(lightmapped_renderers, 3196)
+
+    def test_mesh_atlas_override_is_detected_and_retargeted_only_by_bind(self):
+        source = EDITOR_CLIENT.read_text()
+        self.assertIn("IndexSerializedMeshGuids", source)
+        self.assertIn("MeshAtlas has ExecuteInEditMode", source)
+        self.assertIn("meshAtlas.DisableMesh()", source)
+        self.assertIn("meshAtlas.originalMesh = geometry.recoveredMesh", source)
+        self.assertIn("Validate made no scene changes", source)
+
+        atlas_guid = guid_from_meta(CLIENT / "Assets/Scripts/Assembly-CSharp/MeshAtlas.cs.meta")
+        manifest = json.loads((CLIENT_MANIFESTS / "50_Shooting Range.json").read_text())
+        scene_path = CLIENT / manifest["scenePath"]
+        scene = scene_path.read_text(errors="replace")
+        blocks = {
+            int(match.group(2)): (int(match.group(1)), match.group(3))
+            for match in re.finditer(r"(?ms)^--- !u!(\d+) &(\d+)\n(.*?)(?=^--- !u!|\Z)", scene)
+        }
+        atlas_renderers = []
+        for record in manifest["renderers"]:
+            if record["lightmapIndex"] >= 254:
+                continue
+            renderer_body = blocks[record["rendererId"]][1]
+            game_object_id = int(re.search(r"m_GameObject: \{fileID: (\d+)\}", renderer_body).group(1))
+            game_object_body = blocks[game_object_id][1]
+            component_ids = [int(value) for value in re.findall(r"- component: \{fileID: (\d+)\}", game_object_body)]
+            atlas_body = None
+            for component_id in component_ids:
+                component_type, component_body = blocks[component_id]
+                if component_type == 114 and re.search(
+                        r"m_Script: \{fileID: 11500000, guid: " + atlas_guid + r", type: 3\}", component_body):
+                    atlas_body = component_body
+                    break
+            if atlas_body is None:
+                continue
+
+            mesh_filter = blocks[record["filterId"]][1]
+            recovered_guid = re.search(r"m_Mesh: \{fileID: \d+, guid: ([0-9a-f]{32})", mesh_filter).group(1)
+            atlas_original_guid = re.search(
+                r"originalMesh: \{fileID: \d+, guid: ([0-9a-f]{32})", atlas_body).group(1)
+            mesh_settings = re.search(r"(?m)^\s*meshSettings: (\d+)", atlas_body).group(1)
+            self.assertIn("/RecoveredGeometry/MapGeometry-", guid_paths_for_test(recovered_guid, CLIENT))
+            self.assertNotEqual(recovered_guid, atlas_original_guid)
+            self.assertEqual(mesh_settings, "0")
+            atlas_renderers.append(record["rendererId"])
+
+        self.assertEqual(len(atlas_renderers), 4)
 
     def test_editor_tool_is_opt_in_reversible_and_strict(self):
         text = EDITOR_SOURCE.read_text()

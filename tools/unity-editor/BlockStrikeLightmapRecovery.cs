@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -34,6 +35,7 @@ public static class BlockStrikeLightmapRecovery
     class Record
     {
         public int rendererId;
+        public int filterId;
         public int lightmapIndex;
         public string objectName;
     }
@@ -70,11 +72,20 @@ public static class BlockStrikeLightmapRecovery
         public ReceiptEntry receiptEntry;
     }
 
+    class ResolvedRenderer
+    {
+        public MeshRenderer renderer;
+        public MeshFilter filter;
+        public Mesh recoveredMesh;
+        public MeshAtlas meshAtlas;
+    }
+
     class ResolvedMap
     {
         public Scene scene;
         public Texture2D texture;
         public Renderer[] renderers;
+        public ResolvedRenderer[] geometry;
     }
 
     static string ProjectRoot
@@ -154,6 +165,9 @@ public static class BlockStrikeLightmapRecovery
                     manifest.sceneName + ": expected only original lightmap index 0, found " + record.lightmapIndex + ".");
                 Require(record.rendererId > 0 && ids.Add(record.rendererId),
                     manifest.sceneName + ": invalid/duplicate renderer ID " + record.rendererId + ".");
+                Require(record.filterId > 0,
+                    manifest.sceneName + ": invalid MeshFilter ID " + record.filterId +
+                    " for renderer " + record.rendererId + ".");
                 records.Add(record);
             }
             if (records.Count == 0) continue;
@@ -199,34 +213,110 @@ public static class BlockStrikeLightmapRecovery
         return property.longValue;
     }
 
-    static Dictionary<int, Renderer> IndexRenderers(Scene scene, Manifest manifest)
+    static Dictionary<int, string> IndexSerializedMeshGuids(string sceneText, string sceneName)
     {
-        var wanted = new HashSet<int>();
+        var result = new Dictionary<int, string>();
+        MatchCollection filters = Regex.Matches(sceneText,
+            @"(?ms)^--- !u!33 &(\d+)\s*\r?\n(.*?)(?=^--- !u!|\z)");
+        foreach (Match filterBlock in filters)
+        {
+            int filterId = int.Parse(filterBlock.Groups[1].Value);
+            Match meshReference = Regex.Match(filterBlock.Groups[2].Value,
+                @"(?m)^\s*m_Mesh:\s*\{fileID:\s*\d+,\s*guid:\s*([0-9a-fA-F]{32}),\s*type:\s*\d+\s*\}");
+            if (!meshReference.Success) continue;
+            Require(!result.ContainsKey(filterId), sceneName +
+                ": duplicate serialized MeshFilter local ID " + filterId + ".");
+            result.Add(filterId, meshReference.Groups[1].Value);
+        }
+        return result;
+    }
+
+    static bool IsRecoveredMeshPath(string meshPath, Manifest manifest, int rendererId)
+    {
+        string expectedSuffix = "/" + SafeName(manifest.sceneName) + "/Renderer-" + rendererId + ".asset";
+        return meshPath.IndexOf("/RecoveredGeometry/MapGeometry-", StringComparison.Ordinal) >= 0 &&
+               meshPath.EndsWith(expectedSuffix, StringComparison.Ordinal);
+    }
+
+    static Dictionary<int, ResolvedRenderer> IndexRenderers(Scene scene, Manifest manifest)
+    {
+        var wanted = new Dictionary<int, Record>();
         foreach (Record record in manifest.renderers)
-            if (record.lightmapIndex < 254) wanted.Add(record.rendererId);
-        var result = new Dictionary<int, Renderer>();
+            if (record.lightmapIndex < 254) wanted.Add(record.rendererId, record);
+
+        // MeshAtlas has ExecuteInEditMode and assigns a HideAndDontSave mesh clone to
+        // MeshFilter.sharedMesh on scene open. Read each serialized m_Mesh GUID from the
+        // scene file so preflight can still verify the persistent recovered asset.
+        string sceneText = File.ReadAllText(ProjectFile(manifest.scenePath));
+        Dictionary<int, string> serializedMeshGuids = IndexSerializedMeshGuids(sceneText, manifest.sceneName);
+        var result = new Dictionary<int, ResolvedRenderer>();
         foreach (GameObject root in scene.GetRootGameObjects())
         foreach (Transform transform in root.GetComponentsInChildren<Transform>(true))
         {
             MeshRenderer renderer = transform.GetComponent<MeshRenderer>();
             if (renderer == null) continue;
             long id = LocalId(renderer);
-            if (!wanted.Contains((int)id)) continue;
-            Require(id > 0 && id <= int.MaxValue && !result.ContainsKey((int)id),
+            if (id <= 0 || id > int.MaxValue || !wanted.ContainsKey((int)id)) continue;
+            Require(!result.ContainsKey((int)id),
                 manifest.sceneName + ": invalid/duplicate MeshRenderer local ID " + id + ".");
+
             MeshFilter filter = transform.GetComponent<MeshFilter>();
-            Require(filter != null && filter.sharedMesh != null,
-                manifest.sceneName + ": missing MeshFilter/mesh on " + transform.name + ".");
-            string meshPath = AssetDatabase.GetAssetPath(filter.sharedMesh).Replace('\\', '/');
-            string expectedSuffix = "/" + SafeName(manifest.sceneName) + "/Renderer-" + id + ".asset";
-            Require(meshPath.IndexOf("/RecoveredGeometry/MapGeometry-", StringComparison.Ordinal) >= 0 &&
-                    meshPath.EndsWith(expectedSuffix, StringComparison.Ordinal),
+            Require(filter != null, manifest.sceneName + ": missing MeshFilter on " + transform.name + ".");
+            Record record = wanted[(int)id];
+            long filterId = LocalId(filter);
+            Require(filterId == record.filterId,
+                manifest.sceneName + "/" + transform.name + ": expected MeshFilter local ID " +
+                record.filterId + ", found " + filterId + ".");
+
+            string meshGuid;
+            Require(filterId <= int.MaxValue && serializedMeshGuids.TryGetValue((int)filterId, out meshGuid),
+                manifest.sceneName + "/" + transform.name + ": serialized MeshFilter local ID " +
+                filterId + " has no persistent mesh GUID in the scene file.");
+            string serializedMeshPath = AssetDatabase.GUIDToAssetPath(meshGuid);
+            if (serializedMeshPath == null) serializedMeshPath = "";
+            serializedMeshPath = serializedMeshPath.Replace('\\', '/');
+            Require(IsRecoveredMeshPath(serializedMeshPath, manifest, (int)id),
                 manifest.sceneName + "/" + transform.name +
-                ": expected its recovered Renderer-" + id + " mesh asset, found '" + meshPath +
+                ": the serialized MeshFilter reference must resolve to its recovered Renderer-" + id +
+                " asset, found '" + serializedMeshPath +
                 "'. Run Tools > Block Strike Recovery > Repair ALL scene geometry first.");
+            Mesh recoveredMesh = AssetDatabase.LoadAssetAtPath<Mesh>(serializedMeshPath);
+            Require(recoveredMesh != null,
+                manifest.sceneName + "/" + transform.name + ": recovered mesh asset could not be loaded: " +
+                serializedMeshPath + ".");
+
+            Mesh liveMesh = filter.sharedMesh;
+            string liveMeshPath = liveMesh == null ? "" : AssetDatabase.GetAssetPath(liveMesh).Replace('\\', '/');
+            MeshAtlas meshAtlas = transform.GetComponent<MeshAtlas>();
+            if (meshAtlas != null && meshAtlas.originalMesh != recoveredMesh)
+                Require(!meshAtlas.meshSettings,
+                    manifest.sceneName + "/" + transform.name +
+                    ": MeshAtlas.meshSettings is enabled. The lightmap tool will not retarget this component " +
+                    "because its transform settings could be applied twice to recovered geometry.");
+            if (meshAtlas == null)
+            {
+                Require(liveMesh == recoveredMesh && liveMeshPath == serializedMeshPath,
+                    manifest.sceneName + "/" + transform.name +
+                    ": expected its recovered Renderer-" + id + " mesh asset, found '" + liveMeshPath +
+                    "'. Run Tools > Block Strike Recovery > Repair ALL scene geometry first.");
+            }
+            else if (liveMesh != recoveredMesh)
+            {
+                bool atlasOwnsLiveMesh = liveMesh == null || liveMesh == meshAtlas.originalMesh ||
+                                         string.IsNullOrEmpty(liveMeshPath);
+                Require(atlasOwnsLiveMesh,
+                    manifest.sceneName + "/" + transform.name + ": MeshAtlas is present, but the live mesh '" +
+                    liveMeshPath + "' is neither the serialized recovered mesh nor its source/temporary clone.");
+            }
+
             Require(renderer.name == transform.name,
                 manifest.sceneName + ": renderer name mismatch for local ID " + id + ".");
-            result.Add((int)id, renderer);
+            ResolvedRenderer resolved = new ResolvedRenderer();
+            resolved.renderer = renderer;
+            resolved.filter = filter;
+            resolved.recoveredMesh = recoveredMesh;
+            resolved.meshAtlas = meshAtlas;
+            result.Add((int)id, resolved);
         }
         foreach (Record record in manifest.renderers)
         {
@@ -254,20 +344,26 @@ public static class BlockStrikeLightmapRecovery
     {
         Scene scene = EditorSceneManager.OpenScene(info.manifest.scenePath, OpenSceneMode.Single);
         Require(scene.IsValid() && scene.isLoaded, "Could not open scene " + info.manifest.sceneName + ".");
-        Dictionary<int, Renderer> indexed = IndexRenderers(scene, info.manifest);
+        Dictionary<int, ResolvedRenderer> indexed = IndexRenderers(scene, info.manifest);
         Renderer[] renderers = new Renderer[info.lightmappedRecords.Count];
+        ResolvedRenderer[] geometry = new ResolvedRenderer[info.lightmappedRecords.Count];
         for (int i = 0; i < info.lightmappedRecords.Count; i++)
-            renderers[i] = indexed[info.lightmappedRecords[i].rendererId];
+        {
+            ResolvedRenderer resolvedRenderer = indexed[info.lightmappedRecords[i].rendererId];
+            geometry[i] = resolvedRenderer;
+            renderers[i] = resolvedRenderer.renderer;
+        }
         LegacyLightmapBinder[] existing = FindBinders(scene);
         Require(existing.Length <= 1, info.manifest.sceneName +
             ": found multiple LegacyLightmapBinder components; remove duplicates manually before binding.");
         Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(info.texturePath);
         Require(texture != null, "Lightmap failed to import: " + info.texturePath);
-        ResolvedMap resolved = new ResolvedMap();
-        resolved.scene = scene;
-        resolved.texture = texture;
-        resolved.renderers = renderers;
-        return resolved;
+        ResolvedMap result = new ResolvedMap();
+        result.scene = scene;
+        result.texture = texture;
+        result.renderers = renderers;
+        result.geometry = geometry;
+        return result;
     }
 
     static bool SameRenderers(Renderer[] a, Renderer[] b)
@@ -344,13 +440,32 @@ public static class BlockStrikeLightmapRecovery
         return changed;
     }
 
-    static bool BindOne(MapInfo info)
+    static bool BindOne(MapInfo info, ref int meshAtlasSourcesUpdated)
     {
         ResolvedMap resolved = ResolveMap(info);
         Scene scene = resolved.scene;
+        bool changed = false;
+        for (int i = 0; i < resolved.geometry.Length; i++)
+        {
+            ResolvedRenderer geometry = resolved.geometry[i];
+            MeshAtlas meshAtlas = geometry.meshAtlas;
+            if (meshAtlas == null || meshAtlas.originalMesh == geometry.recoveredMesh) continue;
+
+            // MeshAtlas.OnEnable otherwise restores its old source mesh and replaces the
+            // recovered MeshFilter reference with a transient, non-asset clone. Retarget its
+            // source first; its UV0 atlas operation then clones the recovered mesh (including UV2).
+            meshAtlas.DisableMesh();
+            meshAtlas.originalMesh = geometry.recoveredMesh;
+            meshAtlas.UpdateMesh();
+            EditorUtility.SetDirty(meshAtlas);
+            EditorUtility.SetDirty(geometry.filter);
+            EditorUtility.SetDirty(meshAtlas.gameObject);
+            changed = true;
+            meshAtlasSourcesUpdated++;
+        }
+
         LegacyLightmapBinder[] existing = FindBinders(scene);
         LegacyLightmapBinder binder;
-        bool changed = false;
         if (existing.Length == 0)
         {
             GameObject go = new GameObject(BinderObjectName);
@@ -411,14 +526,19 @@ public static class BlockStrikeLightmapRecovery
         }
     }
 
-    static void ValidateMaps(List<MapInfo> maps)
+    static int ValidateMaps(List<MapInfo> maps)
     {
+        int meshAtlasRetargets = 0;
         for (int i = 0; i < maps.Count; i++)
         {
             MapInfo info = maps[i];
             EditorUtility.DisplayProgressBar("Validate legacy lightmaps", info.manifest.sceneName, (float)i / maps.Count);
-            ResolveMap(info);
+            ResolvedMap resolved = ResolveMap(info);
+            foreach (ResolvedRenderer geometry in resolved.geometry)
+                if (geometry.meshAtlas != null && geometry.meshAtlas.originalMesh != geometry.recoveredMesh)
+                    meshAtlasRetargets++;
         }
+        return meshAtlasRetargets;
     }
 
     [MenuItem("Tools/Block Strike Recovery/Validate ALL legacy lightmaps")]
@@ -430,13 +550,17 @@ public static class BlockStrikeLightmapRecovery
         try
         {
             List<MapInfo> maps = LoadMaps();
-            ValidateMaps(maps);
+            int meshAtlasRetargets = ValidateMaps(maps);
             Debug.Log("[BS608 Lightmaps] Preflight passed: " + maps.Count + " scenes, " +
-                ExpectedLightmappedRendererCount + " renderer bindings, one legacy lightmap per scene.");
+                ExpectedLightmappedRendererCount + " renderer bindings, one legacy lightmap per scene" +
+                (meshAtlasRetargets > 0 ? "; " + meshAtlasRetargets + " MeshAtlas source(s) need retargeting" : "") + ".");
             EditorUtility.DisplayDialog("Lightmap preflight passed",
                 "Validated " + maps.Count + " scenes and " + ExpectedLightmappedRendererCount +
-                " exact renderer IDs. Geometry meshes and lightmap textures are present.\n\n" +
-                "No scene files or texture-importer settings were changed.", "OK");
+                " exact renderer IDs. Serialized recovered mesh assets and lightmap textures are present." +
+                (meshAtlasRetargets > 0 ? "\n\nFound " + meshAtlasRetargets +
+                    " MeshAtlas component(s) whose ExecuteInEditMode clone masks the recovered MeshFilter. " +
+                    "The explicit Bind command will retarget those source references; Validate made no scene changes." : "") +
+                "\n\nNo scene files or texture-importer settings were changed.", "OK");
         }
         catch (Exception ex)
         {
@@ -462,13 +586,15 @@ public static class BlockStrikeLightmapRecovery
         try
         {
             List<MapInfo> maps = LoadMaps();
-            ValidateMaps(maps);
+            int meshAtlasRetargets = ValidateMaps(maps);
             EditorUtility.ClearProgressBar();
             if (!EditorUtility.DisplayDialog("Bind legacy lightmaps",
                 "Preflight passed. This will:\n" +
                 "• add an edit-mode/runtime binder to all " + maps.Count + " map scenes;\n" +
                 "• bind " + ExpectedLightmappedRendererCount + " renderers to their original LightmapFar-0.png;\n" +
                 "• set the 54 textures to Unity's Lightmap import type;\n" +
+                (meshAtlasRetargets > 0 ? "• retarget " + meshAtlasRetargets +
+                    " MeshAtlas source reference(s) to recovered meshes so their edit-mode clones preserve repaired geometry;\n" : "") +
                 "• back up all changed scene files and texture .meta files outside Assets.\n\n" +
                 "No light bake is run. A Revert command restores the backups. Continue?",
                 "Bind lightmaps", "Cancel")) return;
@@ -478,12 +604,13 @@ public static class BlockStrikeLightmapRecovery
             int importersChanged = SetLightmapImporters(maps);
             int scenesChanged = 0;
             int renderersBound = 0;
+            int meshAtlasSourcesUpdated = 0;
             for (int i = 0; i < maps.Count; i++)
             {
                 MapInfo info = maps[i];
                 EditorUtility.DisplayProgressBar("Bind legacy lightmaps", info.manifest.sceneName,
                     (float)i / maps.Count);
-                if (BindOne(info)) scenesChanged++;
+                if (BindOne(info, ref meshAtlasSourcesUpdated)) scenesChanged++;
                 renderersBound += info.lightmappedRecords.Count;
             }
             if (scenesChanged == 0 && importersChanged == 0)
@@ -503,6 +630,7 @@ public static class BlockStrikeLightmapRecovery
             EditorUtility.DisplayDialog("Lightmap binding complete",
                 "Bound " + renderersBound + " renderers across " + maps.Count + " maps.\n" +
                 "Changed " + importersChanged + " texture import settings to Lightmap.\n" +
+                "MeshAtlas source references updated: " + meshAtlasSourcesUpdated + ".\n" +
                 "Scene files changed: " + scenesChanged + ".\n\n" +
                 "The binding is applied in edit mode and when scenes load at runtime. " +
                 "Visual results still need checking in Unity; use Revert if anything looks wrong.\n\n" +

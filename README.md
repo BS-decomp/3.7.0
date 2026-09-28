@@ -18,7 +18,7 @@
 В Unity 5.6.7f1 после компиляции:
 
 1. `Tools → Block Strike Recovery → Validate ALL legacy lightmaps` — проверка без изменений файлов.
-2. `Tools → Block Strike Recovery → Bind ALL legacy lightmaps` — резервирует сцены и `.meta`, добавляет рантайм-биндер в 54 карты и помечает их PNG как Lightmap.
+2. `Tools → Block Strike Recovery → Bind ALL legacy lightmaps` — после подтверждения резервирует сцены и `.meta`, добавляет рантайм-биндер в 54 карты, помечает их PNG как Lightmap и исправляет `MeshAtlas`-ссылки, которые подменяют восстановленные меши временными клонами.
 
 Если визуальный результат не понравится: `Tools → Block Strike Recovery → Revert last legacy lightmap binding`. В текущем окружении Unity нет, поэтому биндер ещё не компилировался/не проверялся визуально — см. ограничения в `docs/lightmap-binding.md`.
 
