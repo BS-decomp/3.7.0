@@ -162,7 +162,7 @@ public class MeshAtlas : MonoBehaviour
 			{
 				originalMesh = GetComponent<MeshFilter>().mesh;
 			}
-			originalMaterial = mf.renderer.sharedMaterial;
+			originalMaterial = mf.GetComponent<Renderer>().sharedMaterial;
 			if (atlas == null && lastUsedAtlas != null)
 			{
 				atlas = lastUsedAtlas;
@@ -189,7 +189,7 @@ public class MeshAtlas : MonoBehaviour
 			UpdateMeshSettings();
 			if (customMaterial != null)
 			{
-				mf.renderer.sharedMaterial = customMaterial;
+				mf.GetComponent<Renderer>().sharedMaterial = customMaterial;
 			}
 			mf.mesh = mesh;
 		}
@@ -199,7 +199,7 @@ public class MeshAtlas : MonoBehaviour
 	{
 		if (mesh != null)
 		{
-			customMaterial = mf.renderer.sharedMaterial;
+			customMaterial = mf.GetComponent<Renderer>().sharedMaterial;
 			Object.DestroyImmediate(mesh);
 			mesh = null;
 		}
@@ -209,7 +209,7 @@ public class MeshAtlas : MonoBehaviour
 		}
 		if (originalMaterial != null)
 		{
-			mf.renderer.sharedMaterial = originalMaterial;
+			mf.GetComponent<Renderer>().sharedMaterial = originalMaterial;
 		}
 	}
 

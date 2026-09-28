@@ -244,7 +244,7 @@ public class SECTR_LOD : MonoBehaviour
 				if ((bool)component)
 				{
 					component.lightmapIndex = lODEntry3.lightmapSource.lightmapIndex;
-					component.lightmapTilingOffset = lODEntry3.lightmapSource.lightmapTilingOffset;
+					component.lightmapScaleOffset = lODEntry3.lightmapSource.lightmapScaleOffset;
 				}
 			}
 		}

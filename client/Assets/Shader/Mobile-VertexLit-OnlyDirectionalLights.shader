@@ -1,3 +1,6 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 // Restored from the Block Strike 608 APK ground truth + era-authentic source.
 // See tools/shader-extract/ and docs/shader-lightmap-recovery.md.
 // Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
@@ -69,7 +72,7 @@ float4 _MainTex_ST;
 v2f_surf vert_surf (appdata_full v)
 {
 	v2f_surf o;
-	o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+	o.pos = UnityObjectToClipPos(v.vertex);
 	o.pack0.xy = TRANSFORM_TEX(v.texcoord, _MainTex);
 	#ifdef LIGHTMAP_ON
 	o.lmap.xy = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
@@ -109,7 +112,7 @@ fixed4 frag_surf (v2f_surf IN) : COLOR
 	c.rgb = o.Albedo * IN.vlight * atten;
 	#endif
 	#ifdef LIGHTMAP_ON
-	fixed3 lm = DecodeLightmap (tex2D(unity_Lightmap, IN.lmap.xy));
+	fixed3 lm = DecodeLightmap (UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy));
 	#ifdef SHADOWS_SCREEN
 	c.rgb += o.Albedo * min(lm, atten*2);
 	#else

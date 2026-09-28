@@ -68,7 +68,7 @@ public class SECTR_Member : MonoBehaviour
 				renderHash = (this.renderer ? this.renderer.GetInstanceID() : 0);
 				lightHash = (this.light ? this.light.GetInstanceID() : 0);
 				terrainHash = (this.terrain ? this.terrain.GetInstanceID() : 0);
-				bool flag = LightmapSettings.lightmapsMode == LightmapsMode.Dual;
+				bool flag = LightmapSettings.lightmapsMode == LightmapsMode.CombinedDirectional;
 				shadowLight = (bool)this.light && light.shadows != LightShadows.None && (!light.alreadyLightmapped || flag);
 				rendererCastsShadows = (bool)this.renderer && renderer.castShadows && (renderer.lightmapIndex == -1 || flag);
 				terrainCastsShadows = (bool)this.terrain && terrain.castShadows && (terrain.lightmapIndex == -1 || flag);
@@ -707,8 +707,8 @@ public class SECTR_Member : MonoBehaviour
 		}
 		Child value = null;
 		childTable.TryGetValue(childTransform, out value);
-		Light light = ((!(value != null)) ? childTransform.light : value.light);
-		Renderer renderer = ((!(value != null)) ? childTransform.renderer : value.renderer);
+		Light light = ((!(value != null)) ? childTransform.GetComponent<Light>() : value.light);
+		Renderer renderer = ((!(value != null)) ? childTransform.GetComponent<Renderer>() : value.renderer);
 		Terrain terrain = null;
 		if (isSector || neverJoin)
 		{

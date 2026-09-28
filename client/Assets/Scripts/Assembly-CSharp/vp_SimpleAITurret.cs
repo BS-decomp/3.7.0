@@ -63,7 +63,7 @@ public class vp_SimpleAITurret : MonoBehaviour
 
 	private void AttackTarget()
 	{
-		Vector3 forward = m_Target.collider.bounds.center - m_Transform.position;
+		Vector3 forward = m_Target.GetComponent<Collider>().bounds.center - m_Transform.position;
 		Quaternion to = Quaternion.LookRotation(forward);
 		m_Transform.rotation = Quaternion.RotateTowards(m_Transform.rotation, to, Time.deltaTime * AimSpeed);
 		m_Shooter.TryFire();

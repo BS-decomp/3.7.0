@@ -41,8 +41,8 @@ public class vp_HitscanBullet : MonoBehaviour
 	private void Awake()
 	{
 		m_Transform = base.transform;
-		m_Renderer = base.renderer;
-		m_Audio = base.audio;
+		m_Renderer = base.GetComponent<Renderer>();
+		m_Audio = base.GetComponent<AudioSource>();
 	}
 
 	private void Start()
