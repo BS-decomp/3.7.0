@@ -67,24 +67,43 @@ untouched (material GUID links are preserved), skips files already recovered
 
 ## Lightmaps
 
-All 54 `LightmapFar-0.png` textures exist in the export; only their parent
-folders still carry the DES-encrypted scene stems
-(`Assets/Levels/.../<Map>/SXZtRDEyM0Ex...`). Scene references point at the
-texture GUIDs, so normalizing the folders while keeping every `.meta`
-preserves all links.
+The 54 `LightmapFar-0.png` textures were preserved and their parent folders
+were renamed to the recovered scene names while keeping their GUIDs. **That did
+not preserve the scene bindings.** The earlier statement that scene references
+still pointed to the texture GUIDs was incorrect for the committed Unity 5.6
+scenes.
+
+An audit of `client/` found, for all 54 map scenes, a null
+`m_LightingDataAsset`, no reference to the corresponding PNG GUID, and no
+recovered `LightingData.asset` / `LightmapSnapshot`. Unity 5.6 renderer records
+also have no serialized lightmap index/offset. The original information needed
+to rebuild the links survives in the geometry manifests: all 3,196 lightmapped
+renderer IDs use index 0, with original scale/offset values. The recovered
+meshes already contain the atlas mapping in UV2; geometry repair therefore
+normalizes renderer scale/offset to identity.
+
+`tools/unity-editor/LegacyLightmapBinder.cs` and
+`tools/unity-editor/BlockStrikeLightmapRecovery.cs` provide a reversible
+editor operation. It preflights all scenes, sets each PNG to Unity's Lightmap
+import type, and adds an edit-mode/runtime binder that assigns the texture to
+`LightmapSettings.lightmaps` and sets the original renderers to index 0. It
+refuses to proceed until geometry recovery is applied. The tool backs up scenes
+and texture `.meta` files outside `Assets`; no bake is run.
+
+See [`lightmap-binding.md`](lightmap-binding.md) for audit details, menu
+commands and verification status. The binding has since been applied to the
+committed scenes (all 54 maps) and checked visually in Unity 5.6.7f1; a device
+build and Play mode under real match conditions remain unverified.
+
+The path normalizer still performs only the GUID-preserving folder rename:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\Normalize-LightmapPaths.ps1 -ProjectPath "$env:USERPROFILE\Desktop\BlockStrike-Unity56\UnityProject"
 ```
 
-The normalizer renames each encrypted folder to the recovered scene name
-(`Better/LightmapFar-0.png` next to `Better.unity` etc.), moves the folder
-`.meta` too, verifies every texture still has its `.meta`, and reports per
-scene. Unity must be closed; it reimports on next open.
-
 ## Known limits
 
 - Occlusion culling data is Unity 4-era and will not work in 5.6; rebake
   per scene if needed (independent of lightmaps).
-- The visual check against the running APK is still pending the user's PC;
-  all mechanical equivalence checks pass.
+- Visual comparison against the running APK is still pending; mechanical
+  recovery checks do not prove pixel-perfect lighting or gameplay equivalence.

@@ -14075,7 +14075,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 33}
-  m_Mesh: {fileID: 4300000, guid: e50f67f7a82263344bdeb2a1da40e99a, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 87c206ac6c3ded34294a89ffddefa898, type: 2}
 --- !u!33 &855
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14131,7 +14131,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 101}
-  m_Mesh: {fileID: 4300000, guid: e63217e683c6ef349ad3f2340c7f291d, type: 2}
+  m_Mesh: {fileID: 4300000, guid: f5322b1e11bef994d83446e5c3c5f903, type: 2}
 --- !u!33 &863
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14250,14 +14250,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 196}
-  m_Mesh: {fileID: 4300000, guid: d94c2650c9b9ee845b552526fabe4a63, type: 2}
+  m_Mesh: {fileID: 4300000, guid: d46494ef485ee044995bf8d13eeb59d4, type: 2}
 --- !u!33 &880
 MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 203}
-  m_Mesh: {fileID: 4300000, guid: 3365d4ec1d8f9f54796f31d4e7ad495e, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 478d15a48b3ef324f9a29e037bbec2aa, type: 2}
 --- !u!33 &881
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14285,7 +14285,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230}
-  m_Mesh: {fileID: 4300000, guid: 02eac3f43062da840ba437fa6cdea16a, type: 2}
+  m_Mesh: {fileID: 4300000, guid: facef7311d234134b8b3c13b7bd5ea1f, type: 2}
 --- !u!33 &885
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14467,7 +14467,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 394}
-  m_Mesh: {fileID: 4300000, guid: e3cd39f7b496e5047ae9e6e4bc78d29a, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 24a8b799defddfd4fab976feed565bfa, type: 2}
 --- !u!33 &911
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34104,3 +34104,50 @@ MonoBehaviour:
   mDepth: 4
   mSortingOrder: 0
   mClipOffset: {x: 0, y: 0}
+--- !u!1 &1648542301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1648542303}
+  - component: {fileID: 1648542302}
+  m_Layer: 0
+  m_Name: BS608_LegacyLightmaps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1648542302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1648542301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed0393c891f479f89e585ea72e6ff16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightmapColor: {fileID: 2800000, guid: dff165c396b2f8a49a92245ca2b9b1c2, type: 3}
+  renderers:
+  - {fileID: 793}
+  - {fileID: 819}
+  - {fileID: 823}
+  - {fileID: 849}
+  sourceManifest: 16_Skyfield.json
+--- !u!4 &1648542303
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1648542301}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
