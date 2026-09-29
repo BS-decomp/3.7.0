@@ -432,8 +432,12 @@ public static class BlockStrikeLightmapRecovery
             if (!seen.Add(info.texturePath)) continue;
             TextureImporter importer = AssetImporter.GetAtPath(info.texturePath) as TextureImporter;
             Require(importer != null, "Texture importer disappeared: " + info.texturePath);
-            if (importer.textureType == TextureImporterType.Lightmap) continue;
-            importer.textureType = TextureImporterType.Lightmap;
+            // Plain (Default) import on purpose. The "Lightmap" import type makes Unity re-encode the
+            // pixels per platform (RGBM on desktop, dLDR on mobile), but these PNGs are already the
+            // original dLDR data and the recovered shaders decode them explicitly as 2.0 * texture.
+            // See docs/android-lightmap-overexposure.md.
+            if (importer.textureType == TextureImporterType.Default) continue;
+            importer.textureType = TextureImporterType.Default;
             importer.SaveAndReimport();
             changed++;
         }
@@ -592,7 +596,7 @@ public static class BlockStrikeLightmapRecovery
                 "Preflight passed. This will:\n" +
                 "• add an edit-mode/runtime binder to all " + maps.Count + " map scenes;\n" +
                 "• bind " + ExpectedLightmappedRendererCount + " renderers to their original LightmapFar-0.png;\n" +
-                "• set the 54 textures to Unity's Lightmap import type;\n" +
+                "• import the 54 textures as plain (Default) textures, not the Lightmap type;\n" +
                 (meshAtlasRetargets > 0 ? "• retarget " + meshAtlasRetargets +
                     " MeshAtlas source reference(s) to recovered meshes so their edit-mode clones preserve repaired geometry;\n" : "") +
                 "• back up all changed scene files and texture .meta files outside Assets.\n\n" +
@@ -629,7 +633,7 @@ public static class BlockStrikeLightmapRecovery
                 maps.Count + " scenes; " + importersChanged + " texture importers changed.");
             EditorUtility.DisplayDialog("Lightmap binding complete",
                 "Bound " + renderersBound + " renderers across " + maps.Count + " maps.\n" +
-                "Changed " + importersChanged + " texture import settings to Lightmap.\n" +
+                "Changed " + importersChanged + " texture import settings to Default.\n" +
                 "MeshAtlas source references updated: " + meshAtlasSourcesUpdated + ".\n" +
                 "Scene files changed: " + scenesChanged + ".\n\n" +
                 "The binding is applied in edit mode and when scenes load at runtime. " +

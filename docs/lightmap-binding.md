@@ -20,7 +20,7 @@ The recovery is opt-in and reversible. The tooling was added first, and the Bind
 
 1. Preflights all 56 manifests and all 54 target scenes before writing anything. It resolves renderers by their serialized local IDs, refuses name-based guesses, verifies each serialized `MeshFilter` GUID points to its expected `RecoveredGeometry/MapGeometry-*/<Map>/Renderer-<id>.asset`, verifies each texture, and checks the expected 54 scenes / 3,196 renderer records. This deliberately checks the scene's persistent reference, not only `MeshFilter.sharedMesh` after scripts run.
 2. Backs up each target `.unity`, scene `.meta`, and lightmap `.meta` under `RecoveryBackups/LightmapBinding/<token>/` (outside `Assets`, gitignored).
-3. Sets each `LightmapFar-0.png` importer to Unity's `Lightmap` type. The original PNG bytes and GUIDs are not changed; `.meta` backups make this reversible.
+3. Sets each `LightmapFar-0.png` importer to a plain **Default** texture (not the `Lightmap` type; see [`android-lightmap-overexposure.md`](android-lightmap-overexposure.md)). The original PNG bytes and GUIDs are not changed; `.meta` backups make this reversible.
 4. Adds one `BS608_LegacyLightmaps` object with `LegacyLightmapBinder` to each target scene and saves it. The component binds the scene's texture to `LightmapSettings.lightmaps`, sets `LightmapsMode.NonDirectional`, and sets the original lightmapped renderers to index 0.
 5. If a lightmapped renderer has `MeshAtlas`, the explicit Bind operation retargets `MeshAtlas.originalMesh` to that renderer's recovered mesh before rebuilding its temporary atlas clone. This preserves the repaired geometry and UV2 when the `[ExecuteInEditMode]` script runs. The scene backup includes this change; `Validate` only reports it and makes no scene changes.
 
@@ -46,7 +46,7 @@ To undo the last successful operation, run `Tools > Block Strike Recovery > Reve
 The Bind operation has been applied to this repository. Concretely:
 
 - all 54 map scenes contain a `BS608_LegacyLightmaps` object carrying `LegacyLightmapBinder`;
-- each map's `LightmapFar-0.png` importer is set to Unity's `Lightmap` texture type (`textureType: 6`), with the importer metadata upgraded to the Unity 5.6 serialization format;
+- each map's `LightmapFar-0.png` importer is a plain Default texture (`textureType: 0`) with the importer metadata in the Unity 5.6 serialization format. It was first bound as the `Lightmap` type (`textureType: 6`) and switched to Default when the Android over-exposure was fixed;
 - the PNG bytes and all asset GUIDs are unchanged.
 
 ## Verification status

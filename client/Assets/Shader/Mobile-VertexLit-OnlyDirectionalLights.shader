@@ -112,7 +112,9 @@ fixed4 frag_surf (v2f_surf IN) : COLOR
 	c.rgb = o.Albedo * IN.vlight * atten;
 	#endif
 	#ifdef LIGHTMAP_ON
-	fixed3 lm = DecodeLightmap (UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy));
+	// Explicit dLDR decode, identical to the 4.7 GLES code in the APK (2.0 * texture). DecodeLightmap()
+	// would pick RGBM decoding on some Unity 5.6 targets, but our lightmaps are dLDR.
+	fixed3 lm = 2.0 * UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy).rgb;
 	#ifdef SHADOWS_SCREEN
 	c.rgb += o.Albedo * min(lm, atten*2);
 	#else
