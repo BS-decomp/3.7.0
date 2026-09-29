@@ -42,7 +42,7 @@ An audit had found that the 54 map lightmap PNGs were not bound to the committed
 scenes. That is now resolved: the reversible editor binder was run against
 `client/`, so all 54 map scenes carry a `BS608_LegacyLightmaps` object with
 `LegacyLightmapBinder`, and each map's `LightmapFar-0.png` is imported as a
-`Lightmap` texture. PNG bytes and asset GUIDs were not modified.
+`Lightmap` texture (later changed to a plain Default texture, see `android-lightmap-overexposure.md`). PNG bytes and asset GUIDs were not modified.
 
 Checked in Unity 5.6.7f1: the project compiles, the scenes open, and the maps
 were inspected by flying through them in the editor — baked shadowing renders

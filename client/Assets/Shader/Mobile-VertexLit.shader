@@ -30,44 +30,92 @@ SubShader {
 		}
 	}
 
-	// Lightmapped, encoded as dLDR
+	// Lightmapped. The Unity 4.7 shader had a dLDR pass ("* double") and an RGBM pass ("* quad"),
+	// and Unity 5.6 picks the RGBM one on Android although our lightmaps are dLDR (about 4x too
+	// bright). Both passes now run one program that decodes dLDR explicitly, exactly like the 4.7
+	// GLES code in the APK: rgb = main.rgb * (2.0 * lightmap.rgb). No lighting is applied here,
+	// same as the original fixed-function passes. See docs/android-lightmap-overexposure.md.
 	Pass {
 		Tags { "LightMode" = "VertexLM" }
-
-		BindChannels {
-			Bind "vertex", Vertex
-			Bind "normal", Normal
-			Bind "texcoord1", TexCoord0
-			Bind "texcoord", TexCoord1
+		CGPROGRAM
+		#pragma vertex vert_lm
+		#pragma fragment frag_lm
+		#pragma multi_compile_fog
+		#include "UnityCG.cginc"
+		sampler2D _MainTex;
+		float4 _MainTex_ST;
+		struct appdata_lm {
+			float4 vertex : POSITION;
+			float2 texcoord : TEXCOORD0;
+			float2 texcoord1 : TEXCOORD1;
+		};
+		struct v2f_lm {
+			float4 pos : SV_POSITION;
+			float2 uv : TEXCOORD0;
+			float2 lmuv : TEXCOORD1;
+			UNITY_FOG_COORDS(2)
+		};
+		v2f_lm vert_lm (appdata_lm v)
+		{
+			v2f_lm o;
+			o.pos = UnityObjectToClipPos(v.vertex);
+			o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+			o.lmuv = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+			UNITY_TRANSFER_FOG(o, o.pos);
+			return o;
 		}
-
-		SetTexture [unity_Lightmap] {
-			Matrix [unity_LightmapMatrix]
-			combine texture
+		fixed4 frag_lm (v2f_lm i) : SV_Target
+		{
+			fixed4 mainTex = tex2D(_MainTex, i.uv);
+			half3 lm = 2.0h * UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmuv).rgb;
+			fixed4 c;
+			c.rgb = mainTex.rgb * lm;
+			c.a = mainTex.a;
+			UNITY_APPLY_FOG(i.fogCoord, c);
+			return c;
 		}
-		SetTexture [_MainTex] {
-			combine texture * previous double, texture alpha * primary alpha
-		}
+		ENDCG
 	}
-
-	// Lightmapped, encoded as RGBM
 	Pass {
 		Tags { "LightMode" = "VertexLMRGBM" }
-
-		BindChannels {
-			Bind "vertex", Vertex
-			Bind "normal", Normal
-			Bind "texcoord1", TexCoord0
-			Bind "texcoord", TexCoord1
+		CGPROGRAM
+		#pragma vertex vert_lm
+		#pragma fragment frag_lm
+		#pragma multi_compile_fog
+		#include "UnityCG.cginc"
+		sampler2D _MainTex;
+		float4 _MainTex_ST;
+		struct appdata_lm {
+			float4 vertex : POSITION;
+			float2 texcoord : TEXCOORD0;
+			float2 texcoord1 : TEXCOORD1;
+		};
+		struct v2f_lm {
+			float4 pos : SV_POSITION;
+			float2 uv : TEXCOORD0;
+			float2 lmuv : TEXCOORD1;
+			UNITY_FOG_COORDS(2)
+		};
+		v2f_lm vert_lm (appdata_lm v)
+		{
+			v2f_lm o;
+			o.pos = UnityObjectToClipPos(v.vertex);
+			o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+			o.lmuv = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+			UNITY_TRANSFER_FOG(o, o.pos);
+			return o;
 		}
-
-		SetTexture [unity_Lightmap] {
-			Matrix [unity_LightmapMatrix]
-			combine texture * texture alpha double
+		fixed4 frag_lm (v2f_lm i) : SV_Target
+		{
+			fixed4 mainTex = tex2D(_MainTex, i.uv);
+			half3 lm = 2.0h * UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmuv).rgb;
+			fixed4 c;
+			c.rgb = mainTex.rgb * lm;
+			c.a = mainTex.a;
+			UNITY_APPLY_FOG(i.fogCoord, c);
+			return c;
 		}
-		SetTexture [_MainTex] {
-			combine texture * previous quad, texture alpha * primary alpha
-		}
+		ENDCG
 	}
 
 	// Pass to render object as a shadow caster
