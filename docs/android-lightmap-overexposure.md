@@ -52,15 +52,17 @@ replaces `DummyShaderTextExporter` placeholders, so it will not undo the fix.
 
 ## Verification status
 
-Done: shader/meta/editor-tool edits and `tools/test_lightmap_binding.py` and
-`tools/test_lightmap_shaders.py`. The fixed-function maths were checked against the APK GLES code.
+Done:
+* Shader, `.meta` and editor-tool edits; `tools/test_lightmap_binding.py` and
+  `tools/test_lightmap_shaders.py` pass. The maths were checked against the APK GLES code.
+* Checked in Unity 5.6.7f1 by the project owner (visual, by eye): the three shaders compile, and the
+  maps look the same as in the original game. Switching the editor build target between
+  Windows (PC) and Android gives the same picture (no over-exposure on Android). Colour Space is
+  Gamma on both targets (`m_ActiveColorSpace: 0`); Android graphics API is still OpenGLES2.
 
-**Not done (no Unity or Android device was available):** compiling the shaders in Unity 5.6.7f1,
-an Android build, and a visual comparison with the original APK. Please check on a device:
+Not done:
+* A build installed and run on a real Android device.
+* A pixel-level comparison against the original APK (the comparison so far is by eye).
 
-1. Open the project in Unity 5.6.7f1 and confirm there are no shader compile errors in the
-   console for the three shaders.
-2. Build for Android (Gamma, OpenGLES2) and compare one map (for example `Better`) with the
-   original APK. Expected: brightness and shadows match the original.
-3. If the lightmapped surfaces are unlit/flat instead of too bright, the engine did not pick a
-   `VertexLM*` pass; report it and the shader can be changed to use an always-on pass.
+If lightmapped surfaces ever look flat/unlit instead of too bright on some target, the engine did
+not pick a `VertexLM*` pass there; the shader can then be switched to an always-on pass.
